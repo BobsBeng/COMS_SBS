@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4dad7c63b0c74dfca659981092c38b56" Name="Diagram1" ZoomLevel="59">
+        <EntityTypeShape EntityType="Model.SBS_COMS_USER1" Width="1.5" PointX="12.75" PointY="13.75" />
+        <EntityTypeShape EntityType="Model.SBS_HT_JUCHUH_TMP_ALL1" Width="1.5" PointX="15" PointY="1.375" />
+        <EntityTypeShape EntityType="Model.SBS_HT_JUCHUJ_TMP_ALL1" Width="1.5" PointX="12.75" PointY="2.75" />
+        <EntityTypeShape EntityType="Model.CM_BP_ALL1" Width="1.5" PointX="2.75" PointY="15.75" />
+        <EntityTypeShape EntityType="Model.CM_COUNTRY_ALL1" Width="1.5" PointX="4.75" PointY="15.75" />
+        <EntityTypeShape EntityType="Model.CM_INCOTERMS_ALL1" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="Model.CM_ITM_UNIT_ALL1" Width="1.5" PointX="16.75" PointY="13.75" />
+        <EntityTypeShape EntityType="Model.HM_TOKUIH_ALL1" Width="1.5" PointX="17.75" PointY="0.75" />
+        <AssociationConnector Association="Model.FK_SBS_HT_JUCHUH_TMP_ALL_011" />
+        <EntityTypeShape EntityType="Model.SBS_COMS_COUNTER_NUMBER_ALL" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Model.SBS_HT_JUCHUH_TMP_ALL" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="Model.SBS_HT_JUCHUJ_TMP_ALL" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="Model.SBS_SM_COMS_FILE_MAP_ALL" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Model.CM_COUNTRY_ALL" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.CM_INCOTERMS_ALL" Width="1.5" PointX="9.75" PointY="5.75" />
+        <EntityTypeShape EntityType="Model.CM_ITM_UNIT_ALL" Width="1.5" PointX="9.75" PointY="9.75" />
+        <EntityTypeShape EntityType="Model.HM_TOKUIH_ALL" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.SC_SYSTEM_ALL" Width="1.5" PointX="11.75" PointY="5.75" />
+        <AssociationConnector Association="Model.FK_SBS_HT_JUCHUH_TMP_ALL_01" />
+        <EntityTypeShape EntityType="Model.SBS_COMS_USER" Width="1.5" PointX="5.375" PointY="12.75" />
+        <EntityTypeShape EntityType="Model.SBS_SC_PO_STATUS" Width="1.5" PointX="12.375" PointY="9.75" />
+        <EntityTypeShape EntityType="Model.CM_HINMO_ALL" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="Model.CM_HINMOI_ALL" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="Model.CM_TOKUI_ALL" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.CM_NOUHIN_ALL" Width="1.5" PointX="7.375" PointY="14.75" />
+        <EntityTypeShape EntityType="Model.CM_CTAX_ALL" Width="1.5" PointX="9.375" PointY="14.75" />
+        <EntityTypeShape EntityType="Model.CM_RATE_ALL" Width="1.5" PointX="15.375" PointY="10.75" />
+        <EntityTypeShape EntityType="Model.CM_BP_ALL" PointX="15.375" PointY="15.75" Width="1.5" />
+        <EntityTypeShape EntityType="Model.CM_PAYCOND_ALL" Width="1.5" PointX="16.375" PointY="0.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

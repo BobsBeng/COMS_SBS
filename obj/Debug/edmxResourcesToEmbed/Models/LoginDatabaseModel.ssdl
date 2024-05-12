@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar2" MaxLength="450" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar2" MaxLength="256" />
+    <Property Name="PasswordHash" Type="nvarchar2" MaxLength="2000" />
+    <Property Name="LockoutEnd" Type="timestamp with time zone" Precision="6" />
+    <Property Name="LockoutEnabled" Type="number" Precision="1" Scale="0" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="Company_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="ISACTIVE" Type="varchar2" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="CM_BP_ALL">
+    <Key>
+      <PropertyRef Name="COMPANY_CD" />
+      <PropertyRef Name="CO_CD" />
+    </Key>
+    <Property Name="COMPANY_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CO_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="OFCL_NM" Type="varchar2" MaxLength="80" />
+    <Property Name="KANA_NM" Type="varchar2" MaxLength="80" />
+    <Property Name="AREA_CD" Type="varchar2" MaxLength="3" />
+    <Property Name="ZIP_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="ADDR1" Type="varchar2" MaxLength="40" />
+    <Property Name="ADDR2" Type="varchar2" MaxLength="40" />
+    <Property Name="ADDR3" Type="varchar2" MaxLength="40" />
+    <Property Name="ADDR4" Type="varchar2" MaxLength="40" />
+    <Property Name="TEL" Type="varchar2" MaxLength="20" />
+    <Property Name="FAX" Type="varchar2" MaxLength="20" />
+    <Property Name="CNTCT_PSN" Type="varchar2" MaxLength="20" />
+    <Property Name="DPT_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="USR_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="ML_ADDR" Type="varchar2" MaxLength="50" />
+    <Property Name="URL" Type="varchar2" MaxLength="50" />
+    <Property Name="SUNDRY_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="TRD_ST_DT" Type="date" Nullable="false" />
+    <Property Name="TRD_END_DT" Type="date" Nullable="false" />
+    <Property Name="BCUR_CD" Type="varchar2" MaxLength="3" Nullable="false" />
+    <Property Name="CNTRY_CD" Type="varchar2" MaxLength="2" Nullable="false" />
+    <Property Name="PRNT_LOCALE_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="100" />
+    <Property Name="FORWARDER_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="PROD2" store:Type="Tables" />
+    <EntitySet Name="CM_BP_ALL" EntityType="Self.CM_BP_ALL" Schema="PROD2" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

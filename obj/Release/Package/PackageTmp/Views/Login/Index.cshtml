@@ -1,0 +1,100 @@
+﻿@model WebApplication1.ViewModels.userLogin
+@{
+    Layout = null;
+    //ViewBag.Title = "AddorEdit";
+}
+<html>
+<head>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10 px 10px;
+        }
+
+        .field-validation-error {
+            color: red; }
+         
+         .label-danger{
+            color: #ff0000;
+        }
+       
+    </style>
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/Content/css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body>
+   
+        <section class="ftco-section">
+            <div class="container">
+                
+                <div class="row justify-content-center">
+                    <div class="col-md-12 col-lg-10">
+                        <div class="wrap d-md-flex">
+                            <div class="col-sm-6 px-0 d-none d-sm-block">
+                                <img src="~/Content/img/prev_ee4291.jpg"
+                                     alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+                            </div>
+                            <div class="login-wrap p-4 p-md-5">
+                                <div class="d-flex">
+                                    <div class="w-100">
+                                        <h3 class="mb-4">Sign In</h3>
+                                    </div>
+                                   
+                                </div>
+                                @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+                        {
+                                    <div class="form-group mb-3">
+                                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control form-control-lg" } })
+                                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        @Html.LabelFor(model => model.PasswordHash, htmlAttributes: new { @class = "form-label" })
+                                        @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control form-control-lg", @type = "password"} })
+                                        @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
+                                        <div class="col-md-12">
+                                            @*@Html.DisplayFor(model => model.LoginErrorMessage, "", new { @class = "text-danger" })*@
+                                            <label class="label-danger">@ViewBag.Message</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+                                    </div>
+                                        
+                        }
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @*<script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="~/Content/js/sb-admin-2.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="~/Content/vendor/chart.js/Chart.min.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="~/Content/js/chart-area-demo.js"></script>
+    <script src="~/Content/js/chart-pie-demo.js"></script>*@
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+       
+   
+    
+
+
+</body>
+</html>

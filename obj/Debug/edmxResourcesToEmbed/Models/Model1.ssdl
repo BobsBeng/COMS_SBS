@@ -1,0 +1,1067 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SBS_COMS_COUNTER_NUMBER_ALL">
+    <Key>
+      <PropertyRef Name="CNT_GRP" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="PERIOD" />
+    </Key>
+    <Property Name="CNT_GRP" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="PERIOD" Type="date" Nullable="false" />
+    <Property Name="CURR_VALUE" Type="varchar2" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="SBS_COMS_USER">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Id" Type="nvarchar2" MaxLength="450" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar2" MaxLength="256" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar2" MaxLength="2000" />
+    <Property Name="LockoutEnd" Type="timestamp with time zone" Precision="6" />
+    <Property Name="LockoutEnabled" Type="nvarchar2" MaxLength="1" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="number" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="Company_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="ISACTIVE" Type="nvarchar2" MaxLength="1" />
+    <Property Name="ROLES" Type="varchar2" MaxLength="20" />
+    <Property Name="LAST_LOGIN" Type="timestamp" Precision="6" />
+    <Property Name="LAST_LOGOUT" Type="timestamp" Precision="6" />
+    <Property Name="REMARKS" Type="varchar2" MaxLength="1000" />
+    <Property Name="EXPIRATION_DT" Type="date" />
+  </EntityType>
+  <EntityType Name="SBS_HT_JUCHUH_TMP_ALL">
+    <Key>
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="T_SLO_D_NO" />
+    </Key>
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="T_SLO_NO" Type="varchar2" MaxLength="15" Nullable="false" />
+    <Property Name="T_SLO_D_NO" Type="varchar2" MaxLength="15" Nullable="false" />
+    <Property Name="SLO_NO" Type="varchar2" MaxLength="15" />
+    <Property Name="SLO_D_NO" Type="varchar2" MaxLength="15" />
+    <Property Name="SET_NO" Type="varchar2" MaxLength="5" />
+    <Property Name="GRP_NO" Type="varchar2" MaxLength="5" />
+    <Property Name="SLS_ARRG_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="DSH_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="ITM_CD" Type="varchar2" MaxLength="40" Nullable="false" />
+    <Property Name="ITM_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="EXT_ITM_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="INPT_UNIT_CD" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="INPT_QTY" Type="number" Precision="13" Scale="4" Nullable="false" />
+    <Property Name="CNV_QTY" Type="number" Precision="13" Scale="4" Nullable="false" />
+    <Property Name="UNIT_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="SHIP_RQST_DT" Type="date" />
+    <Property Name="RQST_DLV_DT" Type="date" />
+    <Property Name="APPRV_DT" Type="date" />
+    <Property Name="APPRV_STS_TYP" Type="varchar2" MaxLength="1" />
+    <Property Name="APPRV_USR_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="QTY" Type="number" Precision="13" Scale="4" Nullable="false" />
+    <Property Name="UPRI" Type="number" Precision="21" Scale="4" Nullable="false" />
+    <Property Name="SPE_DSCNT_UPRI" Type="number" Precision="21" Scale="4" Nullable="false" />
+    <Property Name="DSCNT_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DSCNT" Type="number" Precision="21" Scale="4" Nullable="false" />
+    <Property Name="DSCNT_UPRI" Type="number" Precision="21" Scale="4" Nullable="false" />
+    <Property Name="SLS_AMT" Type="number" Precision="21" Scale="4" Nullable="false" />
+    <Property Name="XTX_SLS_AMT" Type="number" Precision="21" Scale="4" Nullable="false" />
+    <Property Name="CTAX_SPEC_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CTAX_CD" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="CTAX_RATE" Type="number" Precision="7" Scale="4" Nullable="false" />
+    <Property Name="CTAX_TYP" Type="varchar2" MaxLength="1" />
+    <Property Name="CTAX_AMT" Type="number" Precision="21" Scale="4" />
+    <Property Name="SLS_COST_UPRI" Type="number" Precision="21" Scale="4" />
+    <Property Name="RMRKS" Type="varchar2" MaxLength="10" />
+    <Property Name="CAN_FLG" Type="char" MaxLength="1" />
+    <Property Name="CAN_DT" Type="date" />
+    <Property Name="CAN_USR_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="CUR_CD" Type="varchar2" MaxLength="3" />
+    <Property Name="XRATE" Type="number" Precision="21" Scale="4" />
+    <Property Name="XRATE_DT" Type="date" />
+    <Property Name="XCNTRCT_FLG" Type="char" MaxLength="1" />
+    <Property Name="XCNTRCT_NO" Type="varchar2" MaxLength="16" />
+    <Property Name="BCUR_XTX_SLS_AMT" Type="number" Precision="21" Scale="4" />
+    <Property Name="XRATE_TYP" Type="varchar2" MaxLength="2" />
+    <Property Name="SNO" Type="varchar2" MaxLength="15" />
+    <Property Name="SUB_SNO" Type="varchar2" MaxLength="15" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="RQST_ARVD_DT" Type="date" />
+    <Property Name="H_TYP" Type="varchar2" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="SBS_HT_JUCHUJ_TMP_ALL">
+    <Key>
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="T_SLO_NO" />
+    </Key>
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="T_SLO_NO" Type="varchar2" MaxLength="15" Nullable="false" />
+    <Property Name="SLS_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="CST_PO_NO" Type="varchar2" MaxLength="20" />
+    <Property Name="CST_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CST_CNTCT_DPT_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="CST_CNTCT_PSN_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="SCST_CD" Type="varchar2" MaxLength="20" />
+    <Property Name="SCST_ADDR_NO" Type="varchar2" MaxLength="15" />
+    <Property Name="SCST_CNTCT_DPT_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="SCST_USR_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="CSTMR_CD" Type="varchar2" MaxLength="20" />
+    <Property Name="CSTMR_ADDR_NO" Type="varchar2" MaxLength="15" />
+    <Property Name="T_SLO_DT" Type="date" />
+    <Property Name="SLS_RND_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="CTAX_RND_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="CTAX_CALC_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="FARE_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="INTR_RMRKS" Type="varchar2" MaxLength="10" />
+    <Property Name="SLIP_RMRKS" Type="varchar2" MaxLength="10" />
+    <Property Name="CAN_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CAN_DT" Type="date" />
+    <Property Name="CAN_USR_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="CUR_CD" Type="varchar2" MaxLength="3" Nullable="false" />
+    <Property Name="XRATE" Type="number" Precision="21" Scale="4" />
+    <Property Name="XRATE_DT" Type="date" />
+    <Property Name="XCNTRCT_FLG" Type="char" MaxLength="1" />
+    <Property Name="XCNTRCT_NO" Type="varchar2" MaxLength="16" />
+    <Property Name="XRATE_TYP" Type="varchar2" MaxLength="2" Nullable="false" />
+    <Property Name="TRD_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="INCTRMS_CD" Type="varchar2" MaxLength="3" />
+    <Property Name="UKEBASHO_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="PAY_COND_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="SRC_TYP" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ORD_STS" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="SEQ" Type="varchar2" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="SBS_SC_PO_STATUS">
+    <Key>
+      <PropertyRef Name="STS_ID" />
+      <PropertyRef Name="CO_CD" />
+    </Key>
+    <Property Name="STS_ID" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="STS_NM" Type="varchar2" MaxLength="20" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SBS_SM_COMS_FILE_MAP_ALL">
+    <Key>
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="SEQ_NO" />
+      <PropertyRef Name="CST_CD" />
+    </Key>
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="SEQ_NO" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="CST_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="ACT_CST_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CONVERTF" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="SO_SUCCEEDF" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="MAIL_SUBJECT" Type="varchar2" MaxLength="250" Nullable="false" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="REMARKS" Type="varchar2" MaxLength="2000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_BP_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_BP_ALL">
+    <Key>
+      <PropertyRef Name="COMPANY_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="SUNDRY_FLG" />
+      <PropertyRef Name="TRD_ST_DT" />
+      <PropertyRef Name="TRD_END_DT" />
+      <PropertyRef Name="BCUR_CD" />
+      <PropertyRef Name="CNTRY_CD" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="FORWARDER_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="COMPANY_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CO_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="OFCL_NM" Type="varchar2" MaxLength="80" />
+    <Property Name="KANA_NM" Type="varchar2" MaxLength="80" />
+    <Property Name="AREA_CD" Type="varchar2" MaxLength="3" />
+    <Property Name="ZIP_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="ADDR1" Type="varchar2" MaxLength="40" />
+    <Property Name="ADDR2" Type="varchar2" MaxLength="40" />
+    <Property Name="ADDR3" Type="varchar2" MaxLength="40" />
+    <Property Name="ADDR4" Type="varchar2" MaxLength="40" />
+    <Property Name="TEL" Type="varchar2" MaxLength="20" />
+    <Property Name="FAX" Type="varchar2" MaxLength="20" />
+    <Property Name="CNTCT_PSN" Type="varchar2" MaxLength="20" />
+    <Property Name="DPT_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="USR_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="ML_ADDR" Type="varchar2" MaxLength="50" />
+    <Property Name="URL" Type="varchar2" MaxLength="50" />
+    <Property Name="SUNDRY_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="TRD_ST_DT" Type="date" Nullable="false" />
+    <Property Name="TRD_END_DT" Type="date" Nullable="false" />
+    <Property Name="BCUR_CD" Type="varchar2" MaxLength="3" Nullable="false" />
+    <Property Name="CNTRY_CD" Type="varchar2" MaxLength="2" Nullable="false" />
+    <Property Name="PRNT_LOCALE_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="100" />
+    <Property Name="FORWARDER_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="PO_TO_SO_TYP" Type="varchar2" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_COUNTRY_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_COUNTRY_ALL">
+    <Key>
+      <PropertyRef Name="COUNTRY_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="COUNTRY_NM" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="GHS_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="COUNTRY_CD" Type="varchar2" MaxLength="2" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="COUNTRY_NM" Type="varchar2" MaxLength="40" Nullable="false" />
+    <Property Name="REGION" Type="varchar2" MaxLength="20" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="100" />
+    <Property Name="GHS_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_CTAX_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_CTAX_ALL">
+    <Key>
+      <PropertyRef Name="CTAX_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="CTAX_NM" />
+      <PropertyRef Name="CTAX_TYP" />
+      <PropertyRef Name="CTAX_RATE" />
+      <PropertyRef Name="SLS_PURC_TYP" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="CTAX_CD" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CTAX_NM" Type="varchar2" MaxLength="40" Nullable="false" />
+    <Property Name="CTAX_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="CTAX_RATE" Type="number" Precision="7" Scale="4" Nullable="false" />
+    <Property Name="SLS_PURC_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="100" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_HINMO_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_HINMO_ALL">
+    <Key>
+      <PropertyRef Name="ITM_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="ITM_TYP" />
+      <PropertyRef Name="NON_MRP_FLG" />
+      <PropertyRef Name="UNIT_CD" />
+      <PropertyRef Name="PCKG_UNIT_QTY" />
+      <PropertyRef Name="SCH_FLG" />
+      <PropertyRef Name="ITM_ATT_TYP" />
+      <PropertyRef Name="INPT_ALLOC_FLG" />
+      <PropertyRef Name="SO_ALLOC_FLG" />
+      <PropertyRef Name="VMI_FLG" />
+      <PropertyRef Name="FIL_BAK_FLG" />
+      <PropertyRef Name="ITM_JNL_CD" />
+      <PropertyRef Name="APS_TGT_FLG" />
+      <PropertyRef Name="SLS_ARRG_TYP" />
+      <PropertyRef Name="DSH_TYP" />
+      <PropertyRef Name="PKNG_QTY" />
+      <PropertyRef Name="SLS_APP_TMG_TYP" />
+      <PropertyRef Name="SPC_RESP_FLG" />
+      <PropertyRef Name="SLS_ACT_XTR_FLG" />
+      <PropertyRef Name="MINUS_UPRI_PRM_FLG" />
+      <PropertyRef Name="SUNDRY_FLG" />
+      <PropertyRef Name="EACH_TIME_ITM_FLG" />
+      <PropertyRef Name="QTN_SNO_NESS" />
+      <PropertyRef Name="SLO_SNO_NESS" />
+      <PropertyRef Name="UPRI_CHG_AVL_FLG" />
+      <PropertyRef Name="SLO_STOP_FLG" />
+      <PropertyRef Name="PO_STOP_FLG" />
+      <PropertyRef Name="INST_STOP_FLG" />
+      <PropertyRef Name="PURC_TGT_FLG" />
+      <PropertyRef Name="PURC_STNG_COMPL_FLG" />
+      <PropertyRef Name="PROD_TGT_FLG" />
+      <PropertyRef Name="PROD_STNG_COMPL_FLG" />
+      <PropertyRef Name="INSP_TGT_FLG" />
+      <PropertyRef Name="INSP_STNG_COMPL_FLG" />
+      <PropertyRef Name="SLS_TGT_FLG" />
+      <PropertyRef Name="SLS_STNG_COMPL_FLG" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="DEFAULT_FLG" />
+      <PropertyRef Name="PO_BASE_DATE" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="ITM_CD" Type="varchar2" MaxLength="40" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="ITM_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="ITM_ABBR" Type="varchar2" MaxLength="10" />
+    <Property Name="ITM_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="PH_ITM_TYP" Type="varchar2" MaxLength="1" />
+    <Property Name="NON_MRP_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="UNIT_CD" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="PCKG_UNIT_QTY" Type="number" Precision="13" Scale="4" Nullable="false" />
+    <Property Name="PCKG_UNIT_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="MAIN_INP_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="SCH_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="ITM_ATT_TYP" Type="varchar2" MaxLength="3" Nullable="false" />
+    <Property Name="INPT_ALLOC_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SO_ALLOC_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="VMI_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="REQ_RSTR_QTY" Type="number" Precision="13" Scale="4" />
+    <Property Name="FIL_BAK_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="XFR_MRG_LT" Type="number" Precision="9" Scale="0" />
+    <Property Name="XFR_MRG_LT_UNIT" Type="varchar2" MaxLength="2" />
+    <Property Name="TRNSFR_LOT_UNIT_QTY" Type="number" Precision="13" Scale="4" />
+    <Property Name="PROD_ITM_GRP_CD" Type="varchar2" MaxLength="20" />
+    <Property Name="AC_ITM_GRP_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="ITM_JNL_CD" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="HS_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="INO_PTN_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="LOT_NO_INO_TYP" Type="varchar2" MaxLength="1" />
+    <Property Name="APS_TGT_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="EXT_ITM_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="PTN_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="JAN_CD" Type="varchar2" MaxLength="13" />
+    <Property Name="SLS_ARRG_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="DSH_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="PKNG_QTY" Type="number" Precision="13" Scale="4" Nullable="false" />
+    <Property Name="SLS_CTAX_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="NEW_SLS_CTAX_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="NEW_SLS_CTAX_CD_ST_DT" Type="date" />
+    <Property Name="PURC_CTAX_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="NEW_PURC_CTAX_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="NEW_PURC_CTAX_CD_ST_DT" Type="date" />
+    <Property Name="SLS_APP_TMG_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="SPC_RESP_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SLS_ACT_XTR_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MINUS_UPRI_PRM_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SUNDRY_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PLN_PLN_TYP" Type="varchar2" MaxLength="1" />
+    <Property Name="COST_STD_QTY" Type="number" Precision="21" Scale="8" />
+    <Property Name="ITM_CP_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="EACH_TIME_ITM_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="QTN_SNO_NESS" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SLO_SNO_NESS" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DEF_PURC_UNIT_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="DEF_SHIP_UNIT_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="UPRI_CHG_AVL_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="EXPR_DAYS" Type="number" Precision="3" Scale="0" />
+    <Property Name="GUARANTEE_MTHS" Type="number" Precision="3" Scale="0" />
+    <Property Name="BOM_SEIBAN_TYP" Type="varchar2" MaxLength="1" />
+    <Property Name="BOM_SUB_SEIBAN_TYP" Type="varchar2" MaxLength="1" />
+    <Property Name="CTG_A" Type="varchar2" MaxLength="10" />
+    <Property Name="CTG_B" Type="varchar2" MaxLength="10" />
+    <Property Name="CTG_C" Type="varchar2" MaxLength="10" />
+    <Property Name="CTG_D" Type="varchar2" MaxLength="10" />
+    <Property Name="CTG_E" Type="varchar2" MaxLength="10" />
+    <Property Name="CTG_F" Type="varchar2" MaxLength="10" />
+    <Property Name="CTG_G" Type="varchar2" MaxLength="10" />
+    <Property Name="CTG_H" Type="varchar2" MaxLength="10" />
+    <Property Name="CTG_I" Type="varchar2" MaxLength="10" />
+    <Property Name="CTG_J" Type="varchar2" MaxLength="10" />
+    <Property Name="SLO_STOP_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SLO_STOP_DT" Type="date" />
+    <Property Name="PO_STOP_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PO_STOP_DT" Type="date" />
+    <Property Name="INST_STOP_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="INST_STOP_DT" Type="date" />
+    <Property Name="SPE_NOTE" Type="varchar2" MaxLength="250" />
+    <Property Name="PURC_TGT_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PURC_STNG_COMPL_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PROD_TGT_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PROD_STNG_COMPL_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="INSP_TGT_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="INSP_STNG_COMPL_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SLS_TGT_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SLS_STNG_COMPL_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="100" />
+    <Property Name="DEFAULT_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="DEADLINE_DAYS" Type="number" Precision="3" Scale="0" />
+    <Property Name="PO_BASE_DATE" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_HINMOI_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_HINMOI_ALL">
+    <Key>
+      <PropertyRef Name="ITM_CD" />
+      <PropertyRef Name="START_TS" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="END_TS" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="ITM_CD" Type="varchar2" MaxLength="40" Nullable="false" />
+    <Property Name="START_TS" Type="date" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="EDITION_NO" Type="varchar2" MaxLength="15" />
+    <Property Name="EDITION_REMARK" Type="varchar2" MaxLength="100" />
+    <Property Name="DRAWING_BOARD" Type="varchar2" MaxLength="20" />
+    <Property Name="DRAWING_B_REV" Type="varchar2" MaxLength="10" />
+    <Property Name="DRAWING_B_ITEM_NO" Type="varchar2" MaxLength="10" />
+    <Property Name="SPECIFICATIONS" Type="varchar2" MaxLength="20" />
+    <Property Name="SPECIFICATIONS_REV" Type="varchar2" MaxLength="10" />
+    <Property Name="D_B_FILE_PATH" Type="varchar2" MaxLength="180" />
+    <Property Name="SPEC_FILE_PATH" Type="varchar2" MaxLength="180" />
+    <Property Name="SUB_CHAR1" Type="varchar2" MaxLength="50" />
+    <Property Name="SUB_CHAR2" Type="varchar2" MaxLength="50" />
+    <Property Name="SUB_CHAR3" Type="varchar2" MaxLength="50" />
+    <Property Name="SUB_CHAR4" Type="varchar2" MaxLength="50" />
+    <Property Name="SUB_CHAR5" Type="varchar2" MaxLength="50" />
+    <Property Name="SUB_NUM1" Type="number" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM2" Type="number" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM3" Type="number" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM4" Type="number" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM5" Type="number" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM6" Type="number" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM7" Type="number" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM8" Type="number" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM9" Type="number" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM10" Type="number" Precision="21" Scale="8" />
+    <Property Name="REMARK" Type="varchar2" MaxLength="100" />
+    <Property Name="END_TS" Type="date" Nullable="false" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_INCOTERMS_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_INCOTERMS_ALL">
+    <Key>
+      <PropertyRef Name="INCTRMS_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="INCTRMS_NM" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="INCTRMS_CD" Type="varchar2" MaxLength="3" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="INCTRMS_NM" Type="varchar2" MaxLength="40" Nullable="false" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="250" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_ITM_UNIT_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_ITM_UNIT_ALL">
+    <Key>
+      <PropertyRef Name="ITM_CD" />
+      <PropertyRef Name="UNIT_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="UNIT_CONV_QTY" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="ITM_CD" Type="varchar2" MaxLength="40" Nullable="false" />
+    <Property Name="UNIT_CD" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="UNIT_CONV_QTY" Type="number" Precision="13" Scale="4" Nullable="false" />
+    <Property Name="UNIT_WT" Type="number" Precision="13" Scale="4" />
+    <Property Name="UNIT_DIM" Type="number" Precision="13" Scale="4" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="100" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_NOUHIN_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_NOUHIN_ALL">
+    <Key>
+      <PropertyRef Name="SCST_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="SCST_FLG" />
+      <PropertyRef Name="CSTMR_FLG" />
+      <PropertyRef Name="SLS_APP_TMG_TYP" />
+      <PropertyRef Name="SHIP_SLIP_ISSU_FLG" />
+      <PropertyRef Name="IV_TGT_FLG" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="SCST_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="SCST_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="DPT_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="USR_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="CST_CD" Type="varchar2" MaxLength="20" />
+    <Property Name="BISNSS_DPT_CD" Type="varchar2" MaxLength="20" />
+    <Property Name="BISNSS_USR_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="SCST_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CSTMR_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SLS_APP_TMG_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="SHIP_SLIP_ISSU_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="IV_TGT_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="CST_CD1" Type="varchar2" MaxLength="20" />
+    <Property Name="CST_CD2" Type="varchar2" MaxLength="20" />
+    <Property Name="CST_CD3" Type="varchar2" MaxLength="20" />
+    <Property Name="CST_CD4" Type="varchar2" MaxLength="20" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="100" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_PAYCOND_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_PAYCOND_ALL">
+    <Key>
+      <PropertyRef Name="PAY_COND_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="PAY_COND_CD" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="PAY_COND_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="250" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_RATE_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_RATE_ALL">
+    <Key>
+      <PropertyRef Name="CURRENCY_CD" />
+      <PropertyRef Name="BASE_CURRENCY_CD" />
+      <PropertyRef Name="START_TS" />
+      <PropertyRef Name="EXCHANGE_RATE_TYP" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="BASE_RATE" />
+      <PropertyRef Name="END_TS" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="CURRENCY_CD" Type="varchar2" MaxLength="3" Nullable="false" />
+    <Property Name="BASE_CURRENCY_CD" Type="varchar2" MaxLength="3" Nullable="false" />
+    <Property Name="START_TS" Type="date" Nullable="false" />
+    <Property Name="EXCHANGE_RATE_TYP" Type="varchar2" MaxLength="2" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="BASE_RATE" Type="number" Precision="21" Scale="8" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="100" />
+    <Property Name="END_TS" Type="date" Nullable="false" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.CM_TOKUI_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CM_TOKUI_ALL">
+    <Key>
+      <PropertyRef Name="CST_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="BISNSS_DPT_CD" />
+      <PropertyRef Name="ACST_CD" />
+      <PropertyRef Name="SLS_TTL_CD" />
+      <PropertyRef Name="SLO_ENT_NG_FLG" />
+      <PropertyRef Name="SCST_SHET_NEC_FLG" />
+      <PropertyRef Name="SCST_AMT_PRNT_FLG" />
+      <PropertyRef Name="BILL_SHET_REQ_FLG" />
+      <PropertyRef Name="SLS_RND_TYP" />
+      <PropertyRef Name="CTAX_RND_TYP" />
+      <PropertyRef Name="CTAX_CALC_TYP" />
+      <PropertyRef Name="IV_TGT_FLG" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="CST_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CST_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="BISNSS_DPT_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="BISNSS_USR_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="ACST_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="BCST_CD" Type="varchar2" MaxLength="20" />
+    <Property Name="CRED_CD" Type="varchar2" MaxLength="20" />
+    <Property Name="SLS_TTL_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="SLO_ENT_NG_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SCST_SHET_NEC_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SCST_AMT_PRNT_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="BILL_SHET_REQ_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="SLS_RND_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="SLS_CTAX_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="NEW_SLS_CTAX_CD" Type="varchar2" MaxLength="5" />
+    <Property Name="NEW_SLS_CTAX_CD_ST_DT" Type="date" />
+    <Property Name="CTAX_RND_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="CTAX_CALC_TYP" Type="varchar2" MaxLength="1" Nullable="false" />
+    <Property Name="IV_TGT_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="BILL_D_OTP_TYP" Type="varchar2" MaxLength="1" />
+    <Property Name="BILL_D_OTP_ORD_TYP" Type="varchar2" MaxLength="1" />
+    <Property Name="BILL_CL_DT" Type="number" Precision="2" Scale="0" />
+    <Property Name="BILL_CL_PROCESS_DT" Type="number" Precision="3" Scale="0" />
+    <Property Name="BILL_CL_FIX_DT" Type="number" Precision="3" Scale="0" />
+    <Property Name="BILL_MTH_BASE" Type="number" Precision="2" Scale="0" />
+    <Property Name="RCV_SCHD_MTH" Type="number" Precision="2" Scale="0" />
+    <Property Name="RCV_SCHD_DT" Type="number" Precision="2" Scale="0" />
+    <Property Name="CDT_LMT_AMT" Type="number" Precision="21" Scale="8" />
+    <Property Name="INCTRMS_CD" Type="varchar2" MaxLength="3" />
+    <Property Name="UKEBASHO_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="PAY_COND_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="LOC_CD" Type="varchar2" MaxLength="20" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="NOTE" Type="varchar2" MaxLength="100" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+    <Property Name="IV_SUM_TYP" Type="varchar2" MaxLength="1" />
+    <Property Name="SLS_UPRI_TYP" Type="varchar2" MaxLength="1" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.HM_TOKUIH_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="HM_TOKUIH_ALL">
+    <Key>
+      <PropertyRef Name="ITM_CD" />
+      <PropertyRef Name="CST_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="ITM_CD" Type="varchar2" MaxLength="40" Nullable="false" />
+    <Property Name="CST_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CST_ITM_CD" Type="varchar2" MaxLength="40" />
+    <Property Name="CST_ITM_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="CST_EXT_ITM_NM" Type="varchar2" MaxLength="40" />
+    <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="RMRKS" Type="varchar2" MaxLength="100" />
+    <Property Name="INS_TS" Type="date" />
+    <Property Name="INS_USR_CD" Type="varchar2" MaxLength="10" />
+    <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="UPD_TS" Type="date" />
+    <Property Name="UPD_USR_CD" Type="varchar2" MaxLength="10" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'COMS.SC_SYSTEM_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SC_SYSTEM_ALL">
+    <Key>
+      <PropertyRef Name="TYP" />
+      <PropertyRef Name="CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="NMC" />
+    </Key>
+    <Property Name="TYP" Type="varchar2" MaxLength="3" Nullable="false" />
+    <Property Name="CD" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="NM" Type="varchar2" MaxLength="40" />
+    <Property Name="LITERAL" Type="varchar2" MaxLength="100" />
+    <Property Name="NMC" Type="number" Precision="21" Scale="8" Nullable="false" />
+    <Property Name="XPLA" Type="varchar2" MaxLength="1000" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="SBS_COMS_COUNTER_NUMBER_ALL" EntityType="Self.SBS_COMS_COUNTER_NUMBER_ALL" Schema="COMS" store:Type="Tables" />
+    <EntitySet Name="SBS_COMS_USER" EntityType="Self.SBS_COMS_USER" Schema="COMS" store:Type="Tables" />
+    <EntitySet Name="SBS_HT_JUCHUH_TMP_ALL" EntityType="Self.SBS_HT_JUCHUH_TMP_ALL" Schema="COMS" store:Type="Tables" />
+    <EntitySet Name="SBS_HT_JUCHUJ_TMP_ALL" EntityType="Self.SBS_HT_JUCHUJ_TMP_ALL" Schema="COMS" store:Type="Tables" />
+    <EntitySet Name="SBS_SC_PO_STATUS" EntityType="Self.SBS_SC_PO_STATUS" Schema="COMS" store:Type="Tables" />
+    <EntitySet Name="SBS_SM_COMS_FILE_MAP_ALL" EntityType="Self.SBS_SM_COMS_FILE_MAP_ALL" Schema="COMS" store:Type="Tables" />
+    <EntitySet Name="CM_BP_ALL" EntityType="Self.CM_BP_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_BP_ALL"."COMPANY_CD" AS "COMPANY_CD", 
+"CM_BP_ALL"."CO_CD" AS "CO_CD", 
+"CM_BP_ALL"."CO_NM" AS "CO_NM", 
+"CM_BP_ALL"."OFCL_NM" AS "OFCL_NM", 
+"CM_BP_ALL"."KANA_NM" AS "KANA_NM", 
+"CM_BP_ALL"."AREA_CD" AS "AREA_CD", 
+"CM_BP_ALL"."ZIP_CD" AS "ZIP_CD", 
+"CM_BP_ALL"."ADDR1" AS "ADDR1", 
+"CM_BP_ALL"."ADDR2" AS "ADDR2", 
+"CM_BP_ALL"."ADDR3" AS "ADDR3", 
+"CM_BP_ALL"."ADDR4" AS "ADDR4", 
+"CM_BP_ALL"."TEL" AS "TEL", 
+"CM_BP_ALL"."FAX" AS "FAX", 
+"CM_BP_ALL"."CNTCT_PSN" AS "CNTCT_PSN", 
+"CM_BP_ALL"."DPT_NM" AS "DPT_NM", 
+"CM_BP_ALL"."USR_NM" AS "USR_NM", 
+"CM_BP_ALL"."ML_ADDR" AS "ML_ADDR", 
+"CM_BP_ALL"."URL" AS "URL", 
+"CM_BP_ALL"."SUNDRY_FLG" AS "SUNDRY_FLG", 
+"CM_BP_ALL"."TRD_ST_DT" AS "TRD_ST_DT", 
+"CM_BP_ALL"."TRD_END_DT" AS "TRD_END_DT", 
+"CM_BP_ALL"."BCUR_CD" AS "BCUR_CD", 
+"CM_BP_ALL"."CNTRY_CD" AS "CNTRY_CD", 
+"CM_BP_ALL"."PRNT_LOCALE_CD" AS "PRNT_LOCALE_CD", 
+"CM_BP_ALL"."INVALID_FLG" AS "INVALID_FLG", 
+"CM_BP_ALL"."NOTE" AS "NOTE", 
+"CM_BP_ALL"."FORWARDER_FLG" AS "FORWARDER_FLG", 
+"CM_BP_ALL"."INS_TS" AS "INS_TS", 
+"CM_BP_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_BP_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_BP_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_BP_ALL"."UPD_USR_ID" AS "UPD_USR_ID", 
+"CM_BP_ALL"."PO_TO_SO_TYP" AS "PO_TO_SO_TYP"
+FROM "COMS"."CM_BP_ALL" "CM_BP_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CM_COUNTRY_ALL" EntityType="Self.CM_COUNTRY_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_COUNTRY_ALL"."COUNTRY_CD" AS "COUNTRY_CD", 
+"CM_COUNTRY_ALL"."CO_CD" AS "CO_CD", 
+"CM_COUNTRY_ALL"."COUNTRY_NM" AS "COUNTRY_NM", 
+"CM_COUNTRY_ALL"."REGION" AS "REGION", 
+"CM_COUNTRY_ALL"."INVALID_FLG" AS "INVALID_FLG", 
+"CM_COUNTRY_ALL"."NOTE" AS "NOTE", 
+"CM_COUNTRY_ALL"."GHS_FLG" AS "GHS_FLG", 
+"CM_COUNTRY_ALL"."INS_TS" AS "INS_TS", 
+"CM_COUNTRY_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_COUNTRY_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_COUNTRY_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_COUNTRY_ALL"."UPD_USR_ID" AS "UPD_USR_ID"
+FROM "COMS"."CM_COUNTRY_ALL" "CM_COUNTRY_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CM_CTAX_ALL" EntityType="Self.CM_CTAX_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_CTAX_ALL"."CTAX_CD" AS "CTAX_CD", 
+"CM_CTAX_ALL"."CO_CD" AS "CO_CD", 
+"CM_CTAX_ALL"."CTAX_NM" AS "CTAX_NM", 
+"CM_CTAX_ALL"."CTAX_TYP" AS "CTAX_TYP", 
+"CM_CTAX_ALL"."CTAX_RATE" AS "CTAX_RATE", 
+"CM_CTAX_ALL"."SLS_PURC_TYP" AS "SLS_PURC_TYP", 
+"CM_CTAX_ALL"."INVALID_FLG" AS "INVALID_FLG", 
+"CM_CTAX_ALL"."NOTE" AS "NOTE", 
+"CM_CTAX_ALL"."INS_TS" AS "INS_TS", 
+"CM_CTAX_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_CTAX_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_CTAX_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_CTAX_ALL"."UPD_USR_ID" AS "UPD_USR_ID"
+FROM "COMS"."CM_CTAX_ALL" "CM_CTAX_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CM_HINMO_ALL" EntityType="Self.CM_HINMO_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_HINMO_ALL"."ITM_CD" AS "ITM_CD", 
+"CM_HINMO_ALL"."CO_CD" AS "CO_CD", 
+"CM_HINMO_ALL"."ITM_NM" AS "ITM_NM", 
+"CM_HINMO_ALL"."ITM_ABBR" AS "ITM_ABBR", 
+"CM_HINMO_ALL"."ITM_TYP" AS "ITM_TYP", 
+"CM_HINMO_ALL"."PH_ITM_TYP" AS "PH_ITM_TYP", 
+"CM_HINMO_ALL"."NON_MRP_FLG" AS "NON_MRP_FLG", 
+"CM_HINMO_ALL"."UNIT_CD" AS "UNIT_CD", 
+"CM_HINMO_ALL"."PCKG_UNIT_QTY" AS "PCKG_UNIT_QTY", 
+"CM_HINMO_ALL"."PCKG_UNIT_CD" AS "PCKG_UNIT_CD", 
+"CM_HINMO_ALL"."MAIN_INP_CD" AS "MAIN_INP_CD", 
+"CM_HINMO_ALL"."SCH_FLG" AS "SCH_FLG", 
+"CM_HINMO_ALL"."ITM_ATT_TYP" AS "ITM_ATT_TYP", 
+"CM_HINMO_ALL"."INPT_ALLOC_FLG" AS "INPT_ALLOC_FLG", 
+"CM_HINMO_ALL"."SO_ALLOC_FLG" AS "SO_ALLOC_FLG", 
+"CM_HINMO_ALL"."VMI_FLG" AS "VMI_FLG", 
+"CM_HINMO_ALL"."REQ_RSTR_QTY" AS "REQ_RSTR_QTY", 
+"CM_HINMO_ALL"."FIL_BAK_FLG" AS "FIL_BAK_FLG", 
+"CM_HINMO_ALL"."XFR_MRG_LT" AS "XFR_MRG_LT", 
+"CM_HINMO_ALL"."XFR_MRG_LT_UNIT" AS "XFR_MRG_LT_UNIT", 
+"CM_HINMO_ALL"."TRNSFR_LOT_UNIT_QTY" AS "TRNSFR_LOT_UNIT_QTY", 
+"CM_HINMO_ALL"."PROD_ITM_GRP_CD" AS "PROD_ITM_GRP_CD", 
+"CM_HINMO_ALL"."AC_ITM_GRP_CD" AS "AC_ITM_GRP_CD", 
+"CM_HINMO_ALL"."ITM_JNL_CD" AS "ITM_JNL_CD", 
+"CM_HINMO_ALL"."HS_CD" AS "HS_CD", 
+"CM_HINMO_ALL"."INO_PTN_CD" AS "INO_PTN_CD", 
+"CM_HINMO_ALL"."LOT_NO_INO_TYP" AS "LOT_NO_INO_TYP", 
+"CM_HINMO_ALL"."APS_TGT_FLG" AS "APS_TGT_FLG", 
+"CM_HINMO_ALL"."EXT_ITM_NM" AS "EXT_ITM_NM", 
+"CM_HINMO_ALL"."PTN_CD" AS "PTN_CD", 
+"CM_HINMO_ALL"."JAN_CD" AS "JAN_CD", 
+"CM_HINMO_ALL"."SLS_ARRG_TYP" AS "SLS_ARRG_TYP", 
+"CM_HINMO_ALL"."DSH_TYP" AS "DSH_TYP", 
+"CM_HINMO_ALL"."PKNG_QTY" AS "PKNG_QTY", 
+"CM_HINMO_ALL"."SLS_CTAX_CD" AS "SLS_CTAX_CD", 
+"CM_HINMO_ALL"."NEW_SLS_CTAX_CD" AS "NEW_SLS_CTAX_CD", 
+"CM_HINMO_ALL"."NEW_SLS_CTAX_CD_ST_DT" AS "NEW_SLS_CTAX_CD_ST_DT", 
+"CM_HINMO_ALL"."PURC_CTAX_CD" AS "PURC_CTAX_CD", 
+"CM_HINMO_ALL"."NEW_PURC_CTAX_CD" AS "NEW_PURC_CTAX_CD", 
+"CM_HINMO_ALL"."NEW_PURC_CTAX_CD_ST_DT" AS "NEW_PURC_CTAX_CD_ST_DT", 
+"CM_HINMO_ALL"."SLS_APP_TMG_TYP" AS "SLS_APP_TMG_TYP", 
+"CM_HINMO_ALL"."SPC_RESP_FLG" AS "SPC_RESP_FLG", 
+"CM_HINMO_ALL"."SLS_ACT_XTR_FLG" AS "SLS_ACT_XTR_FLG", 
+"CM_HINMO_ALL"."MINUS_UPRI_PRM_FLG" AS "MINUS_UPRI_PRM_FLG", 
+"CM_HINMO_ALL"."SUNDRY_FLG" AS "SUNDRY_FLG", 
+"CM_HINMO_ALL"."PLN_PLN_TYP" AS "PLN_PLN_TYP", 
+"CM_HINMO_ALL"."COST_STD_QTY" AS "COST_STD_QTY", 
+"CM_HINMO_ALL"."ITM_CP_CD" AS "ITM_CP_CD", 
+"CM_HINMO_ALL"."EACH_TIME_ITM_FLG" AS "EACH_TIME_ITM_FLG", 
+"CM_HINMO_ALL"."QTN_SNO_NESS" AS "QTN_SNO_NESS", 
+"CM_HINMO_ALL"."SLO_SNO_NESS" AS "SLO_SNO_NESS", 
+"CM_HINMO_ALL"."DEF_PURC_UNIT_CD" AS "DEF_PURC_UNIT_CD", 
+"CM_HINMO_ALL"."DEF_SHIP_UNIT_CD" AS "DEF_SHIP_UNIT_CD", 
+"CM_HINMO_ALL"."UPRI_CHG_AVL_FLG" AS "UPRI_CHG_AVL_FLG", 
+"CM_HINMO_ALL"."EXPR_DAYS" AS "EXPR_DAYS", 
+"CM_HINMO_ALL"."GUARANTEE_MTHS" AS "GUARANTEE_MTHS", 
+"CM_HINMO_ALL"."BOM_SEIBAN_TYP" AS "BOM_SEIBAN_TYP", 
+"CM_HINMO_ALL"."BOM_SUB_SEIBAN_TYP" AS "BOM_SUB_SEIBAN_TYP", 
+"CM_HINMO_ALL"."CTG_A" AS "CTG_A", 
+"CM_HINMO_ALL"."CTG_B" AS "CTG_B", 
+"CM_HINMO_ALL"."CTG_C" AS "CTG_C", 
+"CM_HINMO_ALL"."CTG_D" AS "CTG_D", 
+"CM_HINMO_ALL"."CTG_E" AS "CTG_E", 
+"CM_HINMO_ALL"."CTG_F" AS "CTG_F", 
+"CM_HINMO_ALL"."CTG_G" AS "CTG_G", 
+"CM_HINMO_ALL"."CTG_H" AS "CTG_H", 
+"CM_HINMO_ALL"."CTG_I" AS "CTG_I", 
+"CM_HINMO_ALL"."CTG_J" AS "CTG_J", 
+"CM_HINMO_ALL"."SLO_STOP_FLG" AS "SLO_STOP_FLG", 
+"CM_HINMO_ALL"."SLO_STOP_DT" AS "SLO_STOP_DT", 
+"CM_HINMO_ALL"."PO_STOP_FLG" AS "PO_STOP_FLG", 
+"CM_HINMO_ALL"."PO_STOP_DT" AS "PO_STOP_DT", 
+"CM_HINMO_ALL"."INST_STOP_FLG" AS "INST_STOP_FLG", 
+"CM_HINMO_ALL"."INST_STOP_DT" AS "INST_STOP_DT", 
+"CM_HINMO_ALL"."SPE_NOTE" AS "SPE_NOTE", 
+"CM_HINMO_ALL"."PURC_TGT_FLG" AS "PURC_TGT_FLG", 
+"CM_HINMO_ALL"."PURC_STNG_COMPL_FLG" AS "PURC_STNG_COMPL_FLG", 
+"CM_HINMO_ALL"."PROD_TGT_FLG" AS "PROD_TGT_FLG", 
+"CM_HINMO_ALL"."PROD_STNG_COMPL_FLG" AS "PROD_STNG_COMPL_FLG", 
+"CM_HINMO_ALL"."INSP_TGT_FLG" AS "INSP_TGT_FLG", 
+"CM_HINMO_ALL"."INSP_STNG_COMPL_FLG" AS "INSP_STNG_COMPL_FLG", 
+"CM_HINMO_ALL"."SLS_TGT_FLG" AS "SLS_TGT_FLG", 
+"CM_HINMO_ALL"."SLS_STNG_COMPL_FLG" AS "SLS_STNG_COMPL_FLG", 
+"CM_HINMO_ALL"."INVALID_FLG" AS "INVALID_FLG", 
+"CM_HINMO_ALL"."NOTE" AS "NOTE", 
+"CM_HINMO_ALL"."DEFAULT_FLG" AS "DEFAULT_FLG", 
+"CM_HINMO_ALL"."DEADLINE_DAYS" AS "DEADLINE_DAYS", 
+"CM_HINMO_ALL"."PO_BASE_DATE" AS "PO_BASE_DATE", 
+"CM_HINMO_ALL"."INS_TS" AS "INS_TS", 
+"CM_HINMO_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_HINMO_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_HINMO_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_HINMO_ALL"."UPD_USR_ID" AS "UPD_USR_ID"
+FROM "COMS"."CM_HINMO_ALL" "CM_HINMO_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CM_HINMOI_ALL" EntityType="Self.CM_HINMOI_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_HINMOI_ALL"."ITM_CD" AS "ITM_CD", 
+"CM_HINMOI_ALL"."START_TS" AS "START_TS", 
+"CM_HINMOI_ALL"."CO_CD" AS "CO_CD", 
+"CM_HINMOI_ALL"."EDITION_NO" AS "EDITION_NO", 
+"CM_HINMOI_ALL"."EDITION_REMARK" AS "EDITION_REMARK", 
+"CM_HINMOI_ALL"."DRAWING_BOARD" AS "DRAWING_BOARD", 
+"CM_HINMOI_ALL"."DRAWING_B_REV" AS "DRAWING_B_REV", 
+"CM_HINMOI_ALL"."DRAWING_B_ITEM_NO" AS "DRAWING_B_ITEM_NO", 
+"CM_HINMOI_ALL"."SPECIFICATIONS" AS "SPECIFICATIONS", 
+"CM_HINMOI_ALL"."SPECIFICATIONS_REV" AS "SPECIFICATIONS_REV", 
+"CM_HINMOI_ALL"."D_B_FILE_PATH" AS "D_B_FILE_PATH", 
+"CM_HINMOI_ALL"."SPEC_FILE_PATH" AS "SPEC_FILE_PATH", 
+"CM_HINMOI_ALL"."SUB_CHAR1" AS "SUB_CHAR1", 
+"CM_HINMOI_ALL"."SUB_CHAR2" AS "SUB_CHAR2", 
+"CM_HINMOI_ALL"."SUB_CHAR3" AS "SUB_CHAR3", 
+"CM_HINMOI_ALL"."SUB_CHAR4" AS "SUB_CHAR4", 
+"CM_HINMOI_ALL"."SUB_CHAR5" AS "SUB_CHAR5", 
+"CM_HINMOI_ALL"."SUB_NUM1" AS "SUB_NUM1", 
+"CM_HINMOI_ALL"."SUB_NUM2" AS "SUB_NUM2", 
+"CM_HINMOI_ALL"."SUB_NUM3" AS "SUB_NUM3", 
+"CM_HINMOI_ALL"."SUB_NUM4" AS "SUB_NUM4", 
+"CM_HINMOI_ALL"."SUB_NUM5" AS "SUB_NUM5", 
+"CM_HINMOI_ALL"."SUB_NUM6" AS "SUB_NUM6", 
+"CM_HINMOI_ALL"."SUB_NUM7" AS "SUB_NUM7", 
+"CM_HINMOI_ALL"."SUB_NUM8" AS "SUB_NUM8", 
+"CM_HINMOI_ALL"."SUB_NUM9" AS "SUB_NUM9", 
+"CM_HINMOI_ALL"."SUB_NUM10" AS "SUB_NUM10", 
+"CM_HINMOI_ALL"."REMARK" AS "REMARK", 
+"CM_HINMOI_ALL"."END_TS" AS "END_TS", 
+"CM_HINMOI_ALL"."INS_TS" AS "INS_TS", 
+"CM_HINMOI_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_HINMOI_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_HINMOI_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_HINMOI_ALL"."UPD_USR_ID" AS "UPD_USR_ID"
+FROM "COMS"."CM_HINMOI_ALL" "CM_HINMOI_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CM_INCOTERMS_ALL" EntityType="Self.CM_INCOTERMS_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_INCOTERMS_ALL"."INCTRMS_CD" AS "INCTRMS_CD", 
+"CM_INCOTERMS_ALL"."CO_CD" AS "CO_CD", 
+"CM_INCOTERMS_ALL"."INCTRMS_NM" AS "INCTRMS_NM", 
+"CM_INCOTERMS_ALL"."INVALID_FLG" AS "INVALID_FLG", 
+"CM_INCOTERMS_ALL"."NOTE" AS "NOTE", 
+"CM_INCOTERMS_ALL"."INS_TS" AS "INS_TS", 
+"CM_INCOTERMS_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_INCOTERMS_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_INCOTERMS_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_INCOTERMS_ALL"."UPD_USR_ID" AS "UPD_USR_ID"
+FROM "COMS"."CM_INCOTERMS_ALL" "CM_INCOTERMS_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CM_ITM_UNIT_ALL" EntityType="Self.CM_ITM_UNIT_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_ITM_UNIT_ALL"."ITM_CD" AS "ITM_CD", 
+"CM_ITM_UNIT_ALL"."UNIT_CD" AS "UNIT_CD", 
+"CM_ITM_UNIT_ALL"."CO_CD" AS "CO_CD", 
+"CM_ITM_UNIT_ALL"."UNIT_CONV_QTY" AS "UNIT_CONV_QTY", 
+"CM_ITM_UNIT_ALL"."UNIT_WT" AS "UNIT_WT", 
+"CM_ITM_UNIT_ALL"."UNIT_DIM" AS "UNIT_DIM", 
+"CM_ITM_UNIT_ALL"."INVALID_FLG" AS "INVALID_FLG", 
+"CM_ITM_UNIT_ALL"."NOTE" AS "NOTE", 
+"CM_ITM_UNIT_ALL"."INS_TS" AS "INS_TS", 
+"CM_ITM_UNIT_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_ITM_UNIT_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_ITM_UNIT_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_ITM_UNIT_ALL"."UPD_USR_ID" AS "UPD_USR_ID"
+FROM "COMS"."CM_ITM_UNIT_ALL" "CM_ITM_UNIT_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CM_NOUHIN_ALL" EntityType="Self.CM_NOUHIN_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_NOUHIN_ALL"."SCST_CD" AS "SCST_CD", 
+"CM_NOUHIN_ALL"."CO_CD" AS "CO_CD", 
+"CM_NOUHIN_ALL"."SCST_NM" AS "SCST_NM", 
+"CM_NOUHIN_ALL"."DPT_NM" AS "DPT_NM", 
+"CM_NOUHIN_ALL"."USR_NM" AS "USR_NM", 
+"CM_NOUHIN_ALL"."CST_CD" AS "CST_CD", 
+"CM_NOUHIN_ALL"."BISNSS_DPT_CD" AS "BISNSS_DPT_CD", 
+"CM_NOUHIN_ALL"."BISNSS_USR_CD" AS "BISNSS_USR_CD", 
+"CM_NOUHIN_ALL"."SCST_FLG" AS "SCST_FLG", 
+"CM_NOUHIN_ALL"."CSTMR_FLG" AS "CSTMR_FLG", 
+"CM_NOUHIN_ALL"."SLS_APP_TMG_TYP" AS "SLS_APP_TMG_TYP", 
+"CM_NOUHIN_ALL"."SHIP_SLIP_ISSU_FLG" AS "SHIP_SLIP_ISSU_FLG", 
+"CM_NOUHIN_ALL"."IV_TGT_FLG" AS "IV_TGT_FLG", 
+"CM_NOUHIN_ALL"."CST_CD1" AS "CST_CD1", 
+"CM_NOUHIN_ALL"."CST_CD2" AS "CST_CD2", 
+"CM_NOUHIN_ALL"."CST_CD3" AS "CST_CD3", 
+"CM_NOUHIN_ALL"."CST_CD4" AS "CST_CD4", 
+"CM_NOUHIN_ALL"."INVALID_FLG" AS "INVALID_FLG", 
+"CM_NOUHIN_ALL"."NOTE" AS "NOTE", 
+"CM_NOUHIN_ALL"."INS_TS" AS "INS_TS", 
+"CM_NOUHIN_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_NOUHIN_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_NOUHIN_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_NOUHIN_ALL"."UPD_USR_ID" AS "UPD_USR_ID"
+FROM "COMS"."CM_NOUHIN_ALL" "CM_NOUHIN_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CM_PAYCOND_ALL" EntityType="Self.CM_PAYCOND_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_PAYCOND_ALL"."PAY_COND_CD" AS "PAY_COND_CD", 
+"CM_PAYCOND_ALL"."CO_CD" AS "CO_CD", 
+"CM_PAYCOND_ALL"."PAY_COND_NM" AS "PAY_COND_NM", 
+"CM_PAYCOND_ALL"."INVALID_FLG" AS "INVALID_FLG", 
+"CM_PAYCOND_ALL"."NOTE" AS "NOTE", 
+"CM_PAYCOND_ALL"."INS_TS" AS "INS_TS", 
+"CM_PAYCOND_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_PAYCOND_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_PAYCOND_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_PAYCOND_ALL"."UPD_USR_ID" AS "UPD_USR_ID"
+FROM "COMS"."CM_PAYCOND_ALL" "CM_PAYCOND_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CM_RATE_ALL" EntityType="Self.CM_RATE_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_RATE_ALL"."CURRENCY_CD" AS "CURRENCY_CD", 
+"CM_RATE_ALL"."BASE_CURRENCY_CD" AS "BASE_CURRENCY_CD", 
+"CM_RATE_ALL"."START_TS" AS "START_TS", 
+"CM_RATE_ALL"."EXCHANGE_RATE_TYP" AS "EXCHANGE_RATE_TYP", 
+"CM_RATE_ALL"."CO_CD" AS "CO_CD", 
+"CM_RATE_ALL"."BASE_RATE" AS "BASE_RATE", 
+"CM_RATE_ALL"."NOTE" AS "NOTE", 
+"CM_RATE_ALL"."END_TS" AS "END_TS", 
+"CM_RATE_ALL"."INS_TS" AS "INS_TS", 
+"CM_RATE_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_RATE_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_RATE_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_RATE_ALL"."UPD_USR_ID" AS "UPD_USR_ID"
+FROM "COMS"."CM_RATE_ALL" "CM_RATE_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CM_TOKUI_ALL" EntityType="Self.CM_TOKUI_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"CM_TOKUI_ALL"."CST_CD" AS "CST_CD", 
+"CM_TOKUI_ALL"."CO_CD" AS "CO_CD", 
+"CM_TOKUI_ALL"."CST_NM" AS "CST_NM", 
+"CM_TOKUI_ALL"."BISNSS_DPT_CD" AS "BISNSS_DPT_CD", 
+"CM_TOKUI_ALL"."BISNSS_USR_CD" AS "BISNSS_USR_CD", 
+"CM_TOKUI_ALL"."ACST_CD" AS "ACST_CD", 
+"CM_TOKUI_ALL"."BCST_CD" AS "BCST_CD", 
+"CM_TOKUI_ALL"."CRED_CD" AS "CRED_CD", 
+"CM_TOKUI_ALL"."SLS_TTL_CD" AS "SLS_TTL_CD", 
+"CM_TOKUI_ALL"."SLO_ENT_NG_FLG" AS "SLO_ENT_NG_FLG", 
+"CM_TOKUI_ALL"."SCST_SHET_NEC_FLG" AS "SCST_SHET_NEC_FLG", 
+"CM_TOKUI_ALL"."SCST_AMT_PRNT_FLG" AS "SCST_AMT_PRNT_FLG", 
+"CM_TOKUI_ALL"."BILL_SHET_REQ_FLG" AS "BILL_SHET_REQ_FLG", 
+"CM_TOKUI_ALL"."SLS_RND_TYP" AS "SLS_RND_TYP", 
+"CM_TOKUI_ALL"."SLS_CTAX_CD" AS "SLS_CTAX_CD", 
+"CM_TOKUI_ALL"."NEW_SLS_CTAX_CD" AS "NEW_SLS_CTAX_CD", 
+"CM_TOKUI_ALL"."NEW_SLS_CTAX_CD_ST_DT" AS "NEW_SLS_CTAX_CD_ST_DT", 
+"CM_TOKUI_ALL"."CTAX_RND_TYP" AS "CTAX_RND_TYP", 
+"CM_TOKUI_ALL"."CTAX_CALC_TYP" AS "CTAX_CALC_TYP", 
+"CM_TOKUI_ALL"."IV_TGT_FLG" AS "IV_TGT_FLG", 
+"CM_TOKUI_ALL"."BILL_D_OTP_TYP" AS "BILL_D_OTP_TYP", 
+"CM_TOKUI_ALL"."BILL_D_OTP_ORD_TYP" AS "BILL_D_OTP_ORD_TYP", 
+"CM_TOKUI_ALL"."BILL_CL_DT" AS "BILL_CL_DT", 
+"CM_TOKUI_ALL"."BILL_CL_PROCESS_DT" AS "BILL_CL_PROCESS_DT", 
+"CM_TOKUI_ALL"."BILL_CL_FIX_DT" AS "BILL_CL_FIX_DT", 
+"CM_TOKUI_ALL"."BILL_MTH_BASE" AS "BILL_MTH_BASE", 
+"CM_TOKUI_ALL"."RCV_SCHD_MTH" AS "RCV_SCHD_MTH", 
+"CM_TOKUI_ALL"."RCV_SCHD_DT" AS "RCV_SCHD_DT", 
+"CM_TOKUI_ALL"."CDT_LMT_AMT" AS "CDT_LMT_AMT", 
+"CM_TOKUI_ALL"."INCTRMS_CD" AS "INCTRMS_CD", 
+"CM_TOKUI_ALL"."UKEBASHO_CD" AS "UKEBASHO_CD", 
+"CM_TOKUI_ALL"."PAY_COND_CD" AS "PAY_COND_CD", 
+"CM_TOKUI_ALL"."LOC_CD" AS "LOC_CD", 
+"CM_TOKUI_ALL"."INVALID_FLG" AS "INVALID_FLG", 
+"CM_TOKUI_ALL"."NOTE" AS "NOTE", 
+"CM_TOKUI_ALL"."INS_TS" AS "INS_TS", 
+"CM_TOKUI_ALL"."INS_USR_ID" AS "INS_USR_ID", 
+"CM_TOKUI_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"CM_TOKUI_ALL"."UPD_TS" AS "UPD_TS", 
+"CM_TOKUI_ALL"."UPD_USR_ID" AS "UPD_USR_ID", 
+"CM_TOKUI_ALL"."IV_SUM_TYP" AS "IV_SUM_TYP", 
+"CM_TOKUI_ALL"."SLS_UPRI_TYP" AS "SLS_UPRI_TYP"
+FROM "COMS"."CM_TOKUI_ALL" "CM_TOKUI_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="HM_TOKUIH_ALL" EntityType="Self.HM_TOKUIH_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"HM_TOKUIH_ALL"."ITM_CD" AS "ITM_CD", 
+"HM_TOKUIH_ALL"."CST_CD" AS "CST_CD", 
+"HM_TOKUIH_ALL"."CO_CD" AS "CO_CD", 
+"HM_TOKUIH_ALL"."CST_ITM_CD" AS "CST_ITM_CD", 
+"HM_TOKUIH_ALL"."CST_ITM_NM" AS "CST_ITM_NM", 
+"HM_TOKUIH_ALL"."CST_EXT_ITM_NM" AS "CST_EXT_ITM_NM", 
+"HM_TOKUIH_ALL"."INVALID_FLG" AS "INVALID_FLG", 
+"HM_TOKUIH_ALL"."RMRKS" AS "RMRKS", 
+"HM_TOKUIH_ALL"."INS_TS" AS "INS_TS", 
+"HM_TOKUIH_ALL"."INS_USR_CD" AS "INS_USR_CD", 
+"HM_TOKUIH_ALL"."UPD_CNTR" AS "UPD_CNTR", 
+"HM_TOKUIH_ALL"."UPD_TS" AS "UPD_TS", 
+"HM_TOKUIH_ALL"."UPD_USR_CD" AS "UPD_USR_CD"
+FROM "COMS"."HM_TOKUIH_ALL" "HM_TOKUIH_ALL"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SC_SYSTEM_ALL" EntityType="Self.SC_SYSTEM_ALL" store:Type="Views" store:Schema="COMS">
+      <DefiningQuery>SELECT 
+"SC_SYSTEM_ALL"."TYP" AS "TYP", 
+"SC_SYSTEM_ALL"."CD" AS "CD", 
+"SC_SYSTEM_ALL"."CO_CD" AS "CO_CD", 
+"SC_SYSTEM_ALL"."NM" AS "NM", 
+"SC_SYSTEM_ALL"."LITERAL" AS "LITERAL", 
+"SC_SYSTEM_ALL"."NMC" AS "NMC", 
+"SC_SYSTEM_ALL"."XPLA" AS "XPLA"
+FROM "COMS"."SC_SYSTEM_ALL" "SC_SYSTEM_ALL"</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

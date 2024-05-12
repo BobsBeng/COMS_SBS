@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Model.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="LockoutEnd" ColumnName="LockoutEnd" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="Company_CD" ColumnName="Company_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_BP_ALL">
+      <EntityTypeMapping TypeName="Model.CM_BP_ALL">
+        <MappingFragment StoreEntitySet="CM_BP_ALL">
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="FORWARDER_FLG" ColumnName="FORWARDER_FLG" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="PRNT_LOCALE_CD" ColumnName="PRNT_LOCALE_CD" />
+          <ScalarProperty Name="CNTRY_CD" ColumnName="CNTRY_CD" />
+          <ScalarProperty Name="BCUR_CD" ColumnName="BCUR_CD" />
+          <ScalarProperty Name="TRD_END_DT" ColumnName="TRD_END_DT" />
+          <ScalarProperty Name="TRD_ST_DT" ColumnName="TRD_ST_DT" />
+          <ScalarProperty Name="SUNDRY_FLG" ColumnName="SUNDRY_FLG" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ML_ADDR" ColumnName="ML_ADDR" />
+          <ScalarProperty Name="USR_NM" ColumnName="USR_NM" />
+          <ScalarProperty Name="DPT_NM" ColumnName="DPT_NM" />
+          <ScalarProperty Name="CNTCT_PSN" ColumnName="CNTCT_PSN" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="ADDR4" ColumnName="ADDR4" />
+          <ScalarProperty Name="ADDR3" ColumnName="ADDR3" />
+          <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+          <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+          <ScalarProperty Name="ZIP_CD" ColumnName="ZIP_CD" />
+          <ScalarProperty Name="AREA_CD" ColumnName="AREA_CD" />
+          <ScalarProperty Name="KANA_NM" ColumnName="KANA_NM" />
+          <ScalarProperty Name="OFCL_NM" ColumnName="OFCL_NM" />
+          <ScalarProperty Name="CO_NM" ColumnName="CO_NM" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

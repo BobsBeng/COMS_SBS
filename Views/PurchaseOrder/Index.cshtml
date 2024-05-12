@@ -1,0 +1,730 @@
+﻿@model WebApplication1.Models.OrderH
+
+@{
+    ViewBag.Title = "Index";
+    if (Session["userName"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .button-like-link {
+        padding: 5px 15px;
+        background: #ccc;
+        border: 0 none;
+        cursor: pointer;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .dt-body-left {
+        text-align: left !important;
+    }
+
+    .dt-body-center {
+        text-align: center !important;
+    }
+</style>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="~/Content/DataTables/jQuery-3.7.0/jquery-3.7.0.min.js"></script>
+<script src="~/Scripts/purchase.js"></script>
+<script type="text/javascript">
+
+    function chooseCustomer() {
+        //Clean error message
+        LoadCompanyCodeOnchange(document.getElementById("custCode"), "@Url.Action("getCompanyCode", "PurchaseOrder")", getValue(), "@Url.Action("getProducts", "PurchaseOrder")");
+    }
+
+    function getValue() {
+        var custCode2 = document.getElementById("custCode").value;
+        return custCode2;
+    }
+    function changeHeader() {
+        var shipperDdlValue =document.getElementById("ddlShipper").value;
+        var selectedValue = ddlShipper.options[ddlShipper.selectedIndex].text;
+        document.getElementById('shipper').textContent = shipperDdlValue;
+        //alert(shipper);
+    }
+
+    $(document).ready(function () {
+        var index = 0;
+        chooseCustomer();
+        var actionUrl = '@Url.Action("generateOrder", "PurchaseOrder")';
+        var indexUrl = '@Url.Action("Index", "PurchaseOrder")';
+        var uTate = @Html.Raw(Json.Encode(ViewBag.uTate));
+        changeHeader();
+
+        $(function () {
+            $('input[name="deliveryDate"]').daterangepicker({
+                autoApply: true,
+                singleDatePicker: true,
+                showDropdowns: true,
+                minYear: 2010,
+                maxYear: 2999,
+                timePicker: false,
+                timePicker24Hour: false,
+                autoUpdateInput: false,
+                endDate: moment().startOf('hour').add(32, 'hour'),
+                locale: {
+                    cancelLabel: 'Clear'
+                },
+                drops: "down",
+            });
+        });
+
+        inputDatebyName('input[name="deliveryDate"]');
+
+
+        //Handle input datepicker
+        function inputDatebyName(elementName) {
+            $(elementName).on('apply.daterangepicker', function (ev, picker) {
+                //$(this).val(picker.startDate.format('YYYY/MM/DD'));
+                $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            });
+        }
+
+        function clearDatebyName(elementName) {
+            $(elementName).on('cancel.daterangepicker', function (ev, picker) {
+                $(this).val('');
+            });
+        }
+
+        var t = $("#inputDetailsItems").DataTable(
+                    {
+                        "searching": false,
+                        "ordering":false,
+                        "scrollX": true,
+                        "autoWidth": true,
+                        "retrieve":true,
+                        "lengthChange": false,
+                        "pageLength": 5,
+                        "columnDefs": [{
+                            "searchable": false,
+                            "orderable": false,
+                            "targets": 0
+                        }, {
+                            "targets": [0],
+                            "className": 'dt-body-center'
+                        }
+                        , {
+                            "targets": [3,5],
+                            "render": $.fn.dataTable.render.number(',', '.', 2, '', ''),
+                            "className": 'dt-body-left'
+                        }
+                        ,{
+                            "targets": [6],
+                            "render": $.fn.dataTable.render.number(',', '.', 2, '', ''),
+                            "className": 'dt-body-left'
+                        },
+                        {
+                            "targets": [8],
+                            "className": 'dt-body-left'
+                        }
+
+                        ],
+                        "order":[[1,'desc']]
+                    });
+        t.on('order.dt search.dt', function () {
+            t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                cell.innerHTML = i + 1;
+            });
+
+            t.draw();
+        });
+
+        t.on('draw', function() {
+            validateDataTable(t);
+        });
+
+        var T_SLO_NO=document.getElementById("orderNo").value;
+        // alert(T_SLO_NO);
+        var PO_STS_NM=document.getElementById("PO_STS_NM").value;
+
+        if (T_SLO_NO === null || T_SLO_NO === "") {
+            t.column(9).visible(false);
+            t.column(11).visible(false);
+
+        } else {
+            t.column(9).visible(true);
+            t.column(11).visible(true);
+
+        }
+        if (PO_STS_NM === "Aborted" ) {
+            t.column(10).visible(true);
+        }
+        else
+        {
+            t.column(10).visible(false);
+        }
+
+
+
+        $('#inputDetailsItems tbody').on( 'click', '#deleteRow', function () {
+            $('#inputDetailsItems').DataTable().row(t.row($(this).closest('tr')).index()).remove().draw(false);
+
+        } );
+
+
+        var custCode2 = document.getElementById('custCode2').value;
+        LoadIncoterm($('#incoterm'), "@Url.Action("getIncoterm","PurchaseOrder")", @Html.Raw(Json.Encode(Model.INCTRMS_CD)));
+
+
+        var textboxValue = '@Session["roles"]';;
+        if (textboxValue === "Administrator") {
+            $("#custCode").prop("disabled", false);
+        } else {
+            $("#custCode").prop("disabled", true);
+        }
+
+        $("#openModalSave","#openModalSubmit","#openModalCancel","#openModalAbort","#openModalReOrder","#openModalAcknowledge").click(function () {
+            $("#modalLink").attr("href", actionUrl);
+            $("#myModal").modal();
+
+        });
+
+        $('#myModal').on('show.bs.modal', function (event) {
+            var url = actionUrl;
+            var deleteUrl = '@Url.Action("deleteOrder", "PurchaseOrder")';
+
+            var button = $(event.relatedTarget);
+            var action = button.data('action');
+            var modal = $(this);
+
+
+            //Set action-specific content
+            if (action == 'save') {
+                modal.find('.modal-title').text('Save confirmation');
+                modal.find('#modalMessage').text('Are you sure to save the data?');
+            } else if (action =='submit') {
+                modal.find('.modal-title').text('Submit confirmation');
+                modal.find('#modalMessage').text('Are you sure to save and submit the data?');
+            } else if (action =='cancel') {
+                modal.find('.modal-title').text('Request to cancel confirmation');
+                modal.find('#modalMessage').text('Are you sure to proceed cancellation request?');
+            } else if (action =='abort') {
+                modal.find('.modal-title').text('Request to abort confirmation');
+                modal.find('#modalMessage').text('Are you sure to proceed abort request?');
+            }
+            else if (action =='delete') {
+                modal.find('.modal-title').text('Delete confirmation');
+                modal.find('#modalMessage').text('Are you sure to delete this transaction?');
+            }
+            else if (action =='reOrder') {
+                modal.find('.modal-title').text('Re-Order confirmation');
+                modal.find('#modalMessage').text('Are you sure make new order using this order reference?');
+            }
+            else if (action =='acknowledge') {
+                modal.find('.modal-title').text('Acknowledge Confirmation');
+                modal.find('#modalMessage').text('Are you sure to acknowledge this order?');
+            }
+
+            //// Set action-specific click event for the Confirm button
+            $('#confirmAction').off('click').on('click', function () {
+                if (action == 'submit') {
+                    saveData(url, 1 , uTate, indexUrl);
+                } else if (action == 'save') {
+                    saveData(url, 0, uTate, indexUrl);
+                }else if (action == 'cancel') {
+                    saveData(url, 3, uTate, indexUrl);
+                }else if (action == 'abort') {
+                    saveData(url, 5, uTate, indexUrl);
+                }else if (action == 'reOrder') {
+                    saveData(url, 6, uTate, indexUrl);
+                }else if (action == 'acknowledge') {
+                    saveData(url, 4, uTate, indexUrl);
+                }
+
+
+                else if (action == 'delete') {
+                    deleteData(deleteUrl, indexUrl);
+                }
+
+            });
+
+        });
+
+        function hideModal() {
+            var url = '@Url.Action("Index", "PurchaseOrder")';
+            $("#myModal").removeClass("in");
+            $(".modal-backdrop").remove();
+            $("#myModal").hide();
+            window.location.href = url;
+        }
+
+        $("#modalLink").click(function (e) {
+            e.preventDefault();
+            var url = $(this).attr("href");
+            if (action == 'submit') {
+                saveData(actionUrl, 1, uTate, indexUrl);
+            } else if (action == 'save') {
+                saveData(actionUrl, 0, uTate, indexUrl);
+            }else if (action == 'cancel') {
+                saveData(actionUrl, 3, uTate, indexUrl);
+            }else if (action == 'abort') {
+                saveData(actionUrl, 5, uTate, indexUrl);
+            }
+            else if (action == 'delete') {
+                deleteData(deleteUrl, indexUrl);
+            }
+            else if (action == 'acknowledge') {
+                deleteData(actionUrl, 4, uTate, indexUrl);
+            }
+        });
+
+        //disable ETA/ETD
+        $("#add").click(function(){
+            $("#ddlShipper").prop("disabled", true);
+        });
+        var PO_STS_NM=document.getElementById("PO_STS_NM").value;
+
+        if (PO_STS_NM === null || PO_STS_NM === "") {
+
+            $("#ddlShipper").prop("disabled", false);
+        } else {
+
+            $("#ddlShipper").prop("disabled", true);
+        }
+        //disable shipper
+        $("#add").click(function(){
+            $("#ddlShipper2").prop("disabled", true);
+        });
+        var PO_STS_NM=document.getElementById("PO_STS_NM").value;
+
+        if (PO_STS_NM === "Saved" || PO_STS_NM === "") {
+
+            $("#ddlShipper2").prop("disabled", false);
+        } else {
+
+            $("#ddlShipper2").prop("disabled", true);
+        }
+
+        setInputFilter(document.getElementById("quantity"), function (value) {
+            return /^-?\d*[.,]?\d*$/.test(value.replace(/,/g, ""));
+        }, "Must be a floating (real) number");
+
+        setInputFilter(document.getElementById("unitPrice"), function (value) {
+            return /^-?\d*[.,]?\d*$/.test(value.replace(/,/g, ""));
+        }, "Must be a floating (real) number");
+
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var numberElements = document.querySelectorAll('.number');
+        numberElements.forEach(function(element, index) {
+            element.textContent = index + 1; // Sets the content to the index + 1 (1-based numbering)
+        });
+    });
+
+    function validateDataTable(t){
+        var hasRows = t.rows().any();
+
+        if(hasRows){
+            //console.log("DataTable content exist.");
+            $("#ddlShipper").prop("disabled", true);
+            $("#ddlShipper2").prop("disabled", true);
+        } else {
+            //console.log("DataTable content does not exist.");
+            $("#ddlShipper").prop("disabled", false);
+            $("#ddlShipper2").prop("disabled", false);
+        }
+    };
+
+
+</script>
+
+
+<div class="card">
+
+    <div class="alert alert-secondary">
+        Header Information
+    </div>
+
+    <div class="card-body">
+        <table class="table table-responsive" id="inputheader">
+            <tr>
+                <td>
+                    Internal Order No.
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.T_SLO_NO, new { htmlAttributes = new { @class = "form-control", @type = "text", @id = "orderNo", @disabled = "disabled" } })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.EditorFor(model => model.CST_CD, new { htmlAttributes = new { @class = "form-control", @type = "text", @id = "custCode2", @hidden = "hidden" } })
+                    Customer PO NO.
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.CST_PO_NO, new { htmlAttributes = new { @class = "form-control", @type = "text", @id = "orderNo2" } })
+                    <span class="error">PO number is required</span>
+                </td>
+                <td>
+                    Customer name.
+                </td>
+                <td>
+                    @Html.DropDownList("CustomerList", null, new { @class = "form-control", id = "custCode", onchange = "chooseCustomer()" })
+                    <span class="error">Customer is required</span>
+                </td>
+                <td>
+                    Country
+                </td>
+                <td>
+                    <input type="text" id="country" class="form-control" disabled="disabled" />
+                    <span class="error">Country is required</span>
+                </td>
+                <td>
+                    PIC name
+                </td>
+                <td>
+                    <input type="text" id="picName" value=@Session["username"].ToString() class="form-control" disabled="disabled" />
+                    <span class="error">PIC is required</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Currency
+                </td>
+                <td>
+                    <input type="text" id="currency" class="currency form-control" readonly="readonly" />
+                    <span class="error">Currency  is required</span>
+                </td>
+                <td>
+                    Incoterm
+                </td>
+                <td>
+                    <select id="incoterm" class="pc form-control">
+                        <option>Select</option>
+                    </select>
+                    <span class="error">Select Item Name</span>
+                </td>
+                <td>
+                    Delivery dest
+                </td>
+                <td>
+                    <input type="text" id="deliveryDest" class="form-control" readonly="readonly" />
+                    <span class="error">Valid delivery destination is required</span>
+                </td>
+                <td>
+                    Order date
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.T_SLO_DT, new { htmlAttributes = new { @class = "form-control", @type = "text", @id = "orderDate", @disabled = "disabled" } })
+                    <span class="error">Valid order date required (ex: MM-dd-yyyy)</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Notes
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.SLIP_RMRKS, new { htmlAttributes = new { @class = "form-control", @type = "text", @id = "description" } })
+                </td>
+                <td>PO status</td>
+                <td>
+                    @Html.EditorFor(model => model.PO_STS_NM, new { htmlAttributes = new { @class = "form-control", @type = "text", @disabled = "disabled", @id = "PO_STS_NM" } })
+                </td>
+                <td>
+                    ETA/ETD
+                </td>
+
+                <td>
+                    <select id="ddlShipper" class="ddlShipper form-control" onchange="changeHeader()">
+                        <option @(ViewBag.shipper == "ETA" ? "selected" : "")>ETA</option>
+                        <option @(ViewBag.shipper == "ETD" ? "selected" : "")>ETD</option>
+
+                        @*<option>ETA</option>
+                            <option>ETD</option>*@
+                    </select>
+                </td>
+                <td>
+                    Expected Shipper
+                </td>
+
+                <td>
+                    @Html.DropDownListFor(model => model.INTR_RMRKS, new List<SelectListItem>
+                {
+                    new SelectListItem { Text = "Air", Value = "Air" },
+                    new SelectListItem { Text = "Sea", Value = "Sea" },
+                    new SelectListItem { Text = "Land", Value = "Land" },
+                }, new { @class = "ddlShipper2 form-control", @id = "ddlShipper2" })
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<div class="card">
+    <div class="alert alert-secondary">
+        Detail Order items
+    </div>
+
+    <div class="card-body">
+
+        <div class="details">
+
+            <div class="form-group row">
+                <table class="table table-striped" id="inputDetails" style="table-layout: fixed;width: 100%;">
+                    <thead>
+                        <tr>
+                            <th width="15%">
+                                Item code
+                            </th>
+                            <th width="20%">
+                                Item name
+                            </th>
+                            <th width="10%">
+                                Quantity
+                            </th>
+                            <th width="10%">
+                                Unit
+                            </th>
+                            <th width="10%">
+                                Unit price
+                            </th>
+                            <th width="15%">
+                                Amount
+                            </th>
+                            <th id="shipper" width="12%">
+                                Delivery date
+                            </th>
+                            <th width="20px">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-bottom-dark" id="mainrow">
+                            <td>
+                                <select id="productCategory" class="pc form-control" onchange="LoadProduct(this,'@Url.Action("getProductsInfo","PurchaseOrder")','@Url.Action("getUnitCode","PurchaseOrder")')">
+                                    <option>Select</option>
+                                </select>
+                                <span class="error">Select item name</span>
+                            </td>
+                            <td>
+                                <input type="text" id="itmName" class="form-control" disabled="disabled" />
+                                <span class="error">Item name is required</span>
+                            </td>
+                            <td>
+                                <input type="text" id="quantity" class="qty form-control" autocomplete="off" />
+                                <span class="error"><label id="lblquantity"></label></span>
+                            </td>
+                            <td>
+                                <select id="UnitCd" class="UnitCd form-control">
+                                    <option>Select</option>
+                                </select>
+                                <span class="error">Select unit code name</span>
+                            </td>
+                            <td>
+                                <input type="text" id="unitPrice" class="price form-control" autocomplete="off" />
+                                <span class="error">Valid unit price is required</span>
+                            </td>
+                            <td>
+                                <input type="text" id="rate" class="num form-control" disabled="disabled" />
+
+                            </td>
+                            <td>
+                                <div class="input-group date" data-target-input="nearest">
+                                    <input type="text" name="deliveryDate" id="deliveryDate" class="form-control" autocomplete="off" />
+                                    <div class="input-group-append" data-target="#deliveryDate" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                    <span class="error"><label id="lbldeliveryDate"></label></span>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="button" id="add" value="add" style="width:80px" class="btn btn-success submit" onclick="addLine('@Url.Action("getminmaxitemcd","PurchaseOrder")')" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped" style="width:100%" id="inputDetailsItems">
+                    <thead>
+                        <tr>
+                            <th>
+                                No.
+                            </th>
+                            <th>
+                                Item code
+                            </th>
+                            <th>
+                                Item name
+                            </th>
+                            <th>
+                                Quantity
+                            </th>
+                            <th>
+                                Unit
+                            </th>
+                            <th>
+                                Unit price
+                            </th>
+                            <th>
+                                Amount
+                            </th>
+                            <th>
+                                ETA
+                            </th>
+                            <th>
+                                ETD
+                            </th>
+                            <th>
+                                Approved Delivery Date
+                            </th>
+                            <th>
+                                Cancellation Date
+                            </th>
+                            <th>
+                                Notes
+                            </th>
+                            <th>
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.OrderD != null)
+                        {
+                            foreach (var item in Model.OrderD)
+                            {
+                                <tr>
+                                    <td class="number" id="rowNum"></td>
+                                    <td>
+                                        @item.ITM_CD
+                                    </td>
+                                    <td>
+                                        @item.ITM_NM
+                                    </td>
+                                    <td>
+                                        @item.INPT_QTY
+                                    </td>
+                                    <td>
+                                        @item.INPT_UNIT_CD
+                                    </td>
+                                    <td>
+                                        @item.UPRI
+                                    </td>
+                                    <td>
+                                        @item.SLS_AMT
+                                    </td>
+                                    <td>
+                                        @*@(item.RQST_ARVD_DT != null ? Convert.ToDateTime(item.RQST_ARVD_DT).ToString("yyyy/MM/dd") : "")*@
+                                        @(item.RQST_ARVD_DT != null ? Convert.ToDateTime(item.RQST_ARVD_DT).ToString("dd/MM/yyyy") : "")
+                                    </td>
+                                    <td>
+                                        @*@(item.RQST_DLV_DT != null ? Convert.ToDateTime(item.RQST_DLV_DT).ToString("yyyy/MM/dd") : "")*@
+                                        @(item.RQST_DLV_DT != null ? Convert.ToDateTime(item.RQST_DLV_DT).ToString("dd/MM/yyyy") : "")
+                                    </td>
+                                    <td>
+                                        @(item.APPRV_DT != null ? Convert.ToDateTime(item.APPRV_DT).ToString("dd/MM/yyyy") : "")
+                                        @*@item.APPRV_DT*@
+                                    </td>
+                                    <td>
+                                        @*@(item.CAN_DT != null ? Convert.ToDateTime(item.CAN_DT).ToString("yyyy/MM/dd") : "")*@
+                                        @(item.CAN_DT != null ? Convert.ToDateTime(item.CAN_DT).ToString("dd/MM/yyyy") : "")
+                                    </td>
+                                    <td>
+                                        @item.RMRKS
+                                    </td>
+                                    <td>
+                                        @if (Model.PO_STS.ToString() == "0" || Model.PO_STS.ToString() == "4")
+                                        {
+                                            <button type='button' id='deleteRow' class='btn btn-danger  btn-sm' title='Remove'><i class='fas fa-window-close'></i></button>
+                                        }
+
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="button-group" style="padding:10px 0; text-align:right">
+                <div class="btn-group dropup">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                    <div class="dropdown-menu">
+                        @if (Model.OrderD != null)
+                        {
+                            if (Model.PO_STS.ToString() == "0")
+                            {
+                                <button id="openModalSubmit" class="dropdown-item" data-toggle="modal" data-target="#myModal" data-action="save">Save as draft</button>
+                                <button id="openModalSave" class="dropdown-item" data-toggle="modal" data-target="#myModal" data-action="submit">Save and submit </button>
+                                <button id="openModalDelete" class="dropdown-item" data-toggle="modal" data-target="#myModal" data-action="delete">Delete</button>
+                            }
+                            if (Model.PO_STS.ToString() == "1")
+                            {  <button id="openModalCancel" class="dropdown-item" data-toggle="modal" data-target="#myModal" data-action="cancel">Request to cancel </button> }
+                            if (Model.PO_STS.ToString() == "2")
+                            { <button id="openModalAbort" class="dropdown-item" data-toggle="modal" data-target="#myModal" data-action="abort">Request to abort </button>}
+                            if (Model.PO_STS.ToString() == "4")
+                            { <button id="openModalReOrder" class="dropdown-item" data-toggle="modal" data-target="#myModal" data-action="reOrder">Re-Order</button>}
+                            if (Model.PO_STS.ToString() == "7")
+                            { <button id="openModalAcknowledge" class="dropdown-item" data-toggle="modal" data-target="#myModal" data-action="acknowledge">Acknowledge</button>}
+                        }
+                        else
+                        {
+                            <button id="openModalSubmit" class="dropdown-item" data-toggle="modal" data-target="#myModal" data-action="save">Save as draft</button>
+                            <button id="openModalSave" class="dropdown-item" data-toggle="modal" data-target="#myModal" data-action="submit">Save and submit </button>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="confirmAction">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    span.error {
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 90%;
+    }
+
+    .price {
+        text-align: right;
+    }
+
+    .qty {
+        text-align: right;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    tr.error {
+        background-color: rgba(255,0,0,0.35);
+    }
+</style>

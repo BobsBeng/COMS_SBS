@@ -1,0 +1,261 @@
+﻿@*@model WebApplication1.Models.OrderH*@
+@model List<WebApplication1.Models.OrderH>
+@{
+    ViewBag.Title = "Index";
+    if (Session["userName"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@{
+    var serialNumber = Model.PageNumber * Model.PageSize - Model.PageSize;
+}*@
+
+@using PagedList.Mvc;
+@using PagedList;
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="~/Content/DataTables/jQuery-3.7.0/jquery-3.7.0.min.js"></script>
+<script src="~/Scripts/purchase.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#checkboxSection input[type="checkbox"]').each(function () {
+            $(this).after('<input type="hidden" name="' + this.name + '" value="false" />');
+        });
+
+        $('#checkboxSection input[type="checkbox"]').change(function () {
+            $(this).next().val(this.checked);
+        });
+
+        var textboxValue = document.getElementById("rolesInfo").textContent;
+        if (textboxValue === "Administrator") {
+            $("#custCode").prop("disabled", false);
+
+        } else {
+            $("#custCode").prop("disabled", true);
+        }
+
+        var t = $('#OrderH').DataTable(
+                    {
+                        "scrollX": true,
+                        "paging": true,
+                        "pageLength": 10 ,
+                        "autoWidth": true,
+                        "lengthChange": false,
+                        //"columnDefs": [{
+                        //    "searchable": false,
+                        //    "data": null,
+                        //    "orderable": false,
+                        //    "targets": 0,
+                        //    "render": function (data, type, row, meta) {
+                        //        // 'meta.row' is the row index in the DataTable
+                        //        return meta.row + 1;
+                        //    }
+                        //},
+                        // //{
+                        // //    "targets": 7,
+                        // //    "render": function (data, type, row) {
+                        // //        var date = new Date(data);
+                        // //        return date.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
+                        // //    }
+                        // //}
+                        //],
+                        "order": [[1, 'asc']]
+                    });
+
+        t.on('order.dt search.dt', function () {
+            t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                cell.innerHTML = i + 1;
+            });
+        }).draw();
+        if (textboxValue === "Administrator") {
+            t.column(13).visible(true);
+
+        } else {
+            t.column(13).visible(false);
+
+        }
+       
+        //var table_length = t.page.info().recordsTotal;;
+        //alert(table_length);
+        $('#OrderH tbody').on('click', '#goDetail', function () {
+            var rowIndex = t.row($(this).closest('tr')).index();
+            var po = t.cell(rowIndex, 1).data();
+            var url = '@Url.Action("Index", "PurchaseOrder")?id=' + po;
+            window.location = url;
+        });
+
+
+        //$('.btnpdf').click(function () {
+        $('#OrderH tbody').on('click', '.btnpdf', function ()  { 
+        var url = '@Url.Action("GeneratePdf2", "InquiryPO")';
+            var rowIndex = t.row($(this).closest('tr')).index();
+            var name = t.cell(rowIndex, 1).data();
+            var purpose = "pdf";
+            window.location.href = url + '?T_SLO_NO=' + name;
+        });
+    });
+
+
+</script>
+
+<div class="card">
+    <div class="alert alert-secondary">
+        PO Inquiry
+    </div>
+    <div class="card-body">
+        @{
+            var statusNames = ViewBag.StatusNames as List<string>;
+            var checkF = "checked";
+        }
+
+        @using (Html.BeginForm("index", "inquiryPO", FormMethod.Get, new { id = "searchForm" }))
+        {
+            <label id="rolesInfo" hidden="hidden">@Session["roles"].ToString()</label>
+            <table class="table table-borderless" style="width:75%" id="search">
+                <tr>
+                    <td>
+                        @Html.Label("Customer Code", null, new { @class = "control-label" })
+                    </td>
+                    <td>
+                        @Html.DropDownList("CustomerList", null, new { @class = "form-control", id = "custCode", onchange = "chooseCustomer()" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Label("Cust PO No", null, new { @class = "control-label" })
+                    </td>
+                    <td>
+                        @Html.TextBox("PONumber", null, new { @class = "form-control" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Label("PO Status", null, new { @class = "control-label" })
+                    </td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Select status
+                            </button>
+                            <ul class="dropdown-menu checkbox-menu allow-focus" aria-labelledby="dropdownMenu1">
+                                @foreach (var statusName in ViewBag.StatusNames)
+                                {
+                                    checkF = "";
+                                    if (ViewBag.SelectedStatusNames != null)
+                                    {
+                                        if (ViewBag.SelectedStatusNames.Contains(statusName))
+                                        {
+                                            checkF = "checked";
+                                        }
+                                    }
+
+                                    <li>
+                                        <input type="checkbox" name="SelectedStatusNames" value="@statusName" id="@statusName" @checkF />
+                                        <label for="@statusName">@statusName</label>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <input type="submit" value="Search" class="btn btn-primary" /> &emsp;
+                            @Html.ActionLink("Create", "Index", "PurchaseOrder", null, new { @class = "btn btn-info" })
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        }
+  
+    </div>
+  
+</div>
+
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-striped" style="width:100%" id="OrderH">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Internal order no.</th>
+                    <th>Customer PO No.</th>
+                    <th>Customer name</th>
+                    <th>Country name</th>
+                    <th>PIC name</th>
+                    <th>Currency</th>
+                    <th>Order date</th>
+                    <th>Delivery destination</th>
+                    <th>Incoterm</th>
+                    <th>Status</th>
+                    <th>Remarks</th>
+                    <th>Action</th>
+                    <th>PDF</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+                    @foreach (var item in Model)
+                    {   
+                        <tr>
+                            <td class="number"></td>
+                            <td>
+                               @item.T_SLO_NO
+                            </td>
+                            <td>
+                                @Html.DisplayFor(ModelItem => item.CST_PO_NO)
+                            </td>
+                            <td>
+                              @item.CO_NM
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(ModelItem => item.COUNTRY_NM)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PIC_NM)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CURRENCY)
+                            </td>
+
+                            <td>
+                                @Convert.ToDateTime(item.T_SLO_DT).ToString("yyyy/MM/dd")
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DELIVERY_DEST)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.INCOTERM)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.APPRV_STS)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.REMARKS)
+                            </td>
+                            <td>
+                                <button type="button" id="goDetail" class="btn btndt btn-outline-primary">Detail</button>
+                            </td>
+                            <td>
+                                <button type="submit" id="pdf" class="btn btnpdf btn-outline-primary">PDF</button>
+                            </td>
+                        </tr>
+                    }
+                @*}*@
+               
+            </tbody>
+        </table>
+ 
+    </div>
+</div>
+
+
+
+

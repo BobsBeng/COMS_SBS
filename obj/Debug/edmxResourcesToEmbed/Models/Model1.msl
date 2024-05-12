@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="SBS_COMS_COUNTER_NUMBER_ALL">
+      <EntityTypeMapping TypeName="Model.SBS_COMS_COUNTER_NUMBER_ALL">
+        <MappingFragment StoreEntitySet="SBS_COMS_COUNTER_NUMBER_ALL">
+          <ScalarProperty Name="CURR_VALUE" ColumnName="CURR_VALUE" />
+          <ScalarProperty Name="PERIOD" ColumnName="PERIOD" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="CNT_GRP" ColumnName="CNT_GRP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SBS_HT_JUCHUH_TMP_ALL">
+      <EntityTypeMapping TypeName="Model.SBS_HT_JUCHUH_TMP_ALL">
+        <MappingFragment StoreEntitySet="SBS_HT_JUCHUH_TMP_ALL">
+          <ScalarProperty Name="H_TYP" ColumnName="H_TYP" />
+          <ScalarProperty Name="RQST_ARVD_DT" ColumnName="RQST_ARVD_DT" />
+          <ScalarProperty Name="UPD_USR_CD" ColumnName="UPD_USR_CD" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_CD" ColumnName="INS_USR_CD" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="SUB_SNO" ColumnName="SUB_SNO" />
+          <ScalarProperty Name="SNO" ColumnName="SNO" />
+          <ScalarProperty Name="XRATE_TYP" ColumnName="XRATE_TYP" />
+          <ScalarProperty Name="BCUR_XTX_SLS_AMT" ColumnName="BCUR_XTX_SLS_AMT" />
+          <ScalarProperty Name="XCNTRCT_NO" ColumnName="XCNTRCT_NO" />
+          <ScalarProperty Name="XCNTRCT_FLG" ColumnName="XCNTRCT_FLG" />
+          <ScalarProperty Name="XRATE_DT" ColumnName="XRATE_DT" />
+          <ScalarProperty Name="XRATE" ColumnName="XRATE" />
+          <ScalarProperty Name="CUR_CD" ColumnName="CUR_CD" />
+          <ScalarProperty Name="CAN_USR_CD" ColumnName="CAN_USR_CD" />
+          <ScalarProperty Name="CAN_DT" ColumnName="CAN_DT" />
+          <ScalarProperty Name="CAN_FLG" ColumnName="CAN_FLG" />
+          <ScalarProperty Name="RMRKS" ColumnName="RMRKS" />
+          <ScalarProperty Name="SLS_COST_UPRI" ColumnName="SLS_COST_UPRI" />
+          <ScalarProperty Name="CTAX_AMT" ColumnName="CTAX_AMT" />
+          <ScalarProperty Name="CTAX_TYP" ColumnName="CTAX_TYP" />
+          <ScalarProperty Name="CTAX_RATE" ColumnName="CTAX_RATE" />
+          <ScalarProperty Name="CTAX_CD" ColumnName="CTAX_CD" />
+          <ScalarProperty Name="CTAX_SPEC_FLG" ColumnName="CTAX_SPEC_FLG" />
+          <ScalarProperty Name="XTX_SLS_AMT" ColumnName="XTX_SLS_AMT" />
+          <ScalarProperty Name="SLS_AMT" ColumnName="SLS_AMT" />
+          <ScalarProperty Name="DSCNT_UPRI" ColumnName="DSCNT_UPRI" />
+          <ScalarProperty Name="DSCNT" ColumnName="DSCNT" />
+          <ScalarProperty Name="DSCNT_FLG" ColumnName="DSCNT_FLG" />
+          <ScalarProperty Name="SPE_DSCNT_UPRI" ColumnName="SPE_DSCNT_UPRI" />
+          <ScalarProperty Name="UPRI" ColumnName="UPRI" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="APPRV_USR_CD" ColumnName="APPRV_USR_CD" />
+          <ScalarProperty Name="APPRV_STS_TYP" ColumnName="APPRV_STS_TYP" />
+          <ScalarProperty Name="APPRV_DT" ColumnName="APPRV_DT" />
+          <ScalarProperty Name="RQST_DLV_DT" ColumnName="RQST_DLV_DT" />
+          <ScalarProperty Name="SHIP_RQST_DT" ColumnName="SHIP_RQST_DT" />
+          <ScalarProperty Name="UNIT_CD" ColumnName="UNIT_CD" />
+          <ScalarProperty Name="CNV_QTY" ColumnName="CNV_QTY" />
+          <ScalarProperty Name="INPT_QTY" ColumnName="INPT_QTY" />
+          <ScalarProperty Name="INPT_UNIT_CD" ColumnName="INPT_UNIT_CD" />
+          <ScalarProperty Name="EXT_ITM_NM" ColumnName="EXT_ITM_NM" />
+          <ScalarProperty Name="ITM_NM" ColumnName="ITM_NM" />
+          <ScalarProperty Name="ITM_CD" ColumnName="ITM_CD" />
+          <ScalarProperty Name="DSH_TYP" ColumnName="DSH_TYP" />
+          <ScalarProperty Name="SLS_ARRG_TYP" ColumnName="SLS_ARRG_TYP" />
+          <ScalarProperty Name="GRP_NO" ColumnName="GRP_NO" />
+          <ScalarProperty Name="SET_NO" ColumnName="SET_NO" />
+          <ScalarProperty Name="SLO_D_NO" ColumnName="SLO_D_NO" />
+          <ScalarProperty Name="SLO_NO" ColumnName="SLO_NO" />
+          <ScalarProperty Name="T_SLO_D_NO" ColumnName="T_SLO_D_NO" />
+          <ScalarProperty Name="T_SLO_NO" ColumnName="T_SLO_NO" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SBS_HT_JUCHUJ_TMP_ALL">
+      <EntityTypeMapping TypeName="Model.SBS_HT_JUCHUJ_TMP_ALL">
+        <MappingFragment StoreEntitySet="SBS_HT_JUCHUJ_TMP_ALL">
+          <ScalarProperty Name="SEQ" ColumnName="SEQ" />
+          <ScalarProperty Name="ORD_STS" ColumnName="ORD_STS" />
+          <ScalarProperty Name="UPD_USR_CD" ColumnName="UPD_USR_CD" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_CD" ColumnName="INS_USR_CD" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="SRC_TYP" ColumnName="SRC_TYP" />
+          <ScalarProperty Name="PAY_COND_CD" ColumnName="PAY_COND_CD" />
+          <ScalarProperty Name="UKEBASHO_CD" ColumnName="UKEBASHO_CD" />
+          <ScalarProperty Name="INCTRMS_CD" ColumnName="INCTRMS_CD" />
+          <ScalarProperty Name="TRD_TYP" ColumnName="TRD_TYP" />
+          <ScalarProperty Name="XRATE_TYP" ColumnName="XRATE_TYP" />
+          <ScalarProperty Name="XCNTRCT_NO" ColumnName="XCNTRCT_NO" />
+          <ScalarProperty Name="XCNTRCT_FLG" ColumnName="XCNTRCT_FLG" />
+          <ScalarProperty Name="XRATE_DT" ColumnName="XRATE_DT" />
+          <ScalarProperty Name="XRATE" ColumnName="XRATE" />
+          <ScalarProperty Name="CUR_CD" ColumnName="CUR_CD" />
+          <ScalarProperty Name="CAN_USR_CD" ColumnName="CAN_USR_CD" />
+          <ScalarProperty Name="CAN_DT" ColumnName="CAN_DT" />
+          <ScalarProperty Name="CAN_FLG" ColumnName="CAN_FLG" />
+          <ScalarProperty Name="SLIP_RMRKS" ColumnName="SLIP_RMRKS" />
+          <ScalarProperty Name="INTR_RMRKS" ColumnName="INTR_RMRKS" />
+          <ScalarProperty Name="FARE_TYP" ColumnName="FARE_TYP" />
+          <ScalarProperty Name="CTAX_CALC_TYP" ColumnName="CTAX_CALC_TYP" />
+          <ScalarProperty Name="CTAX_RND_TYP" ColumnName="CTAX_RND_TYP" />
+          <ScalarProperty Name="SLS_RND_TYP" ColumnName="SLS_RND_TYP" />
+          <ScalarProperty Name="T_SLO_DT" ColumnName="T_SLO_DT" />
+          <ScalarProperty Name="CSTMR_ADDR_NO" ColumnName="CSTMR_ADDR_NO" />
+          <ScalarProperty Name="CSTMR_CD" ColumnName="CSTMR_CD" />
+          <ScalarProperty Name="SCST_USR_NM" ColumnName="SCST_USR_NM" />
+          <ScalarProperty Name="SCST_CNTCT_DPT_NM" ColumnName="SCST_CNTCT_DPT_NM" />
+          <ScalarProperty Name="SCST_ADDR_NO" ColumnName="SCST_ADDR_NO" />
+          <ScalarProperty Name="SCST_CD" ColumnName="SCST_CD" />
+          <ScalarProperty Name="CST_CNTCT_PSN_NM" ColumnName="CST_CNTCT_PSN_NM" />
+          <ScalarProperty Name="CST_CNTCT_DPT_NM" ColumnName="CST_CNTCT_DPT_NM" />
+          <ScalarProperty Name="CST_CD" ColumnName="CST_CD" />
+          <ScalarProperty Name="CST_PO_NO" ColumnName="CST_PO_NO" />
+          <ScalarProperty Name="SLS_TYP" ColumnName="SLS_TYP" />
+          <ScalarProperty Name="T_SLO_NO" ColumnName="T_SLO_NO" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SBS_SM_COMS_FILE_MAP_ALL">
+      <EntityTypeMapping TypeName="Model.SBS_SM_COMS_FILE_MAP_ALL">
+        <MappingFragment StoreEntitySet="SBS_SM_COMS_FILE_MAP_ALL">
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="MAIL_SUBJECT" ColumnName="MAIL_SUBJECT" />
+          <ScalarProperty Name="SO_SUCCEEDF" ColumnName="SO_SUCCEEDF" />
+          <ScalarProperty Name="CONVERTF" ColumnName="CONVERTF" />
+          <ScalarProperty Name="ACT_CST_CD" ColumnName="ACT_CST_CD" />
+          <ScalarProperty Name="CST_CD" ColumnName="CST_CD" />
+          <ScalarProperty Name="SEQ_NO" ColumnName="SEQ_NO" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_COUNTRY_ALL">
+      <EntityTypeMapping TypeName="Model.CM_COUNTRY_ALL">
+        <MappingFragment StoreEntitySet="CM_COUNTRY_ALL">
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="GHS_FLG" ColumnName="GHS_FLG" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="REGION" ColumnName="REGION" />
+          <ScalarProperty Name="COUNTRY_NM" ColumnName="COUNTRY_NM" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="COUNTRY_CD" ColumnName="COUNTRY_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_INCOTERMS_ALL">
+      <EntityTypeMapping TypeName="Model.CM_INCOTERMS_ALL">
+        <MappingFragment StoreEntitySet="CM_INCOTERMS_ALL">
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="INCTRMS_NM" ColumnName="INCTRMS_NM" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="INCTRMS_CD" ColumnName="INCTRMS_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_ITM_UNIT_ALL">
+      <EntityTypeMapping TypeName="Model.CM_ITM_UNIT_ALL">
+        <MappingFragment StoreEntitySet="CM_ITM_UNIT_ALL">
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="UNIT_DIM" ColumnName="UNIT_DIM" />
+          <ScalarProperty Name="UNIT_WT" ColumnName="UNIT_WT" />
+          <ScalarProperty Name="UNIT_CONV_QTY" ColumnName="UNIT_CONV_QTY" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="UNIT_CD" ColumnName="UNIT_CD" />
+          <ScalarProperty Name="ITM_CD" ColumnName="ITM_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HM_TOKUIH_ALL">
+      <EntityTypeMapping TypeName="Model.HM_TOKUIH_ALL">
+        <MappingFragment StoreEntitySet="HM_TOKUIH_ALL">
+          <ScalarProperty Name="UPD_USR_CD" ColumnName="UPD_USR_CD" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_CD" ColumnName="INS_USR_CD" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="RMRKS" ColumnName="RMRKS" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="CST_EXT_ITM_NM" ColumnName="CST_EXT_ITM_NM" />
+          <ScalarProperty Name="CST_ITM_NM" ColumnName="CST_ITM_NM" />
+          <ScalarProperty Name="CST_ITM_CD" ColumnName="CST_ITM_CD" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="CST_CD" ColumnName="CST_CD" />
+          <ScalarProperty Name="ITM_CD" ColumnName="ITM_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SC_SYSTEM_ALL">
+      <EntityTypeMapping TypeName="Model.SC_SYSTEM_ALL">
+        <MappingFragment StoreEntitySet="SC_SYSTEM_ALL">
+          <ScalarProperty Name="XPLA" ColumnName="XPLA" />
+          <ScalarProperty Name="NMC" ColumnName="NMC" />
+          <ScalarProperty Name="LITERAL" ColumnName="LITERAL" />
+          <ScalarProperty Name="NM" ColumnName="NM" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="CD" ColumnName="CD" />
+          <ScalarProperty Name="TYP" ColumnName="TYP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SBS_COMS_USER">
+      <EntityTypeMapping TypeName="Model.SBS_COMS_USER">
+        <MappingFragment StoreEntitySet="SBS_COMS_USER">
+          <ScalarProperty Name="EXPIRATION_DT" ColumnName="EXPIRATION_DT" />
+          <ScalarProperty Name="REMARKS" ColumnName="REMARKS" />
+          <ScalarProperty Name="LAST_LOGOUT" ColumnName="LAST_LOGOUT" />
+          <ScalarProperty Name="LAST_LOGIN" ColumnName="LAST_LOGIN" />
+          <ScalarProperty Name="ROLES" ColumnName="ROLES" />
+          <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+          <ScalarProperty Name="Company_CD" ColumnName="Company_CD" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEnd" ColumnName="LockoutEnd" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SBS_SC_PO_STATUS">
+      <EntityTypeMapping TypeName="Model.SBS_SC_PO_STATUS">
+        <MappingFragment StoreEntitySet="SBS_SC_PO_STATUS">
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="STS_NM" ColumnName="STS_NM" />
+          <ScalarProperty Name="STS_ID" ColumnName="STS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_HINMO_ALL">
+      <EntityTypeMapping TypeName="Model.CM_HINMO_ALL">
+        <MappingFragment StoreEntitySet="CM_HINMO_ALL">
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="PO_BASE_DATE" ColumnName="PO_BASE_DATE" />
+          <ScalarProperty Name="DEADLINE_DAYS" ColumnName="DEADLINE_DAYS" />
+          <ScalarProperty Name="DEFAULT_FLG" ColumnName="DEFAULT_FLG" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="SLS_STNG_COMPL_FLG" ColumnName="SLS_STNG_COMPL_FLG" />
+          <ScalarProperty Name="SLS_TGT_FLG" ColumnName="SLS_TGT_FLG" />
+          <ScalarProperty Name="INSP_STNG_COMPL_FLG" ColumnName="INSP_STNG_COMPL_FLG" />
+          <ScalarProperty Name="INSP_TGT_FLG" ColumnName="INSP_TGT_FLG" />
+          <ScalarProperty Name="PROD_STNG_COMPL_FLG" ColumnName="PROD_STNG_COMPL_FLG" />
+          <ScalarProperty Name="PROD_TGT_FLG" ColumnName="PROD_TGT_FLG" />
+          <ScalarProperty Name="PURC_STNG_COMPL_FLG" ColumnName="PURC_STNG_COMPL_FLG" />
+          <ScalarProperty Name="PURC_TGT_FLG" ColumnName="PURC_TGT_FLG" />
+          <ScalarProperty Name="SPE_NOTE" ColumnName="SPE_NOTE" />
+          <ScalarProperty Name="INST_STOP_DT" ColumnName="INST_STOP_DT" />
+          <ScalarProperty Name="INST_STOP_FLG" ColumnName="INST_STOP_FLG" />
+          <ScalarProperty Name="PO_STOP_DT" ColumnName="PO_STOP_DT" />
+          <ScalarProperty Name="PO_STOP_FLG" ColumnName="PO_STOP_FLG" />
+          <ScalarProperty Name="SLO_STOP_DT" ColumnName="SLO_STOP_DT" />
+          <ScalarProperty Name="SLO_STOP_FLG" ColumnName="SLO_STOP_FLG" />
+          <ScalarProperty Name="CTG_J" ColumnName="CTG_J" />
+          <ScalarProperty Name="CTG_I" ColumnName="CTG_I" />
+          <ScalarProperty Name="CTG_H" ColumnName="CTG_H" />
+          <ScalarProperty Name="CTG_G" ColumnName="CTG_G" />
+          <ScalarProperty Name="CTG_F" ColumnName="CTG_F" />
+          <ScalarProperty Name="CTG_E" ColumnName="CTG_E" />
+          <ScalarProperty Name="CTG_D" ColumnName="CTG_D" />
+          <ScalarProperty Name="CTG_C" ColumnName="CTG_C" />
+          <ScalarProperty Name="CTG_B" ColumnName="CTG_B" />
+          <ScalarProperty Name="CTG_A" ColumnName="CTG_A" />
+          <ScalarProperty Name="BOM_SUB_SEIBAN_TYP" ColumnName="BOM_SUB_SEIBAN_TYP" />
+          <ScalarProperty Name="BOM_SEIBAN_TYP" ColumnName="BOM_SEIBAN_TYP" />
+          <ScalarProperty Name="GUARANTEE_MTHS" ColumnName="GUARANTEE_MTHS" />
+          <ScalarProperty Name="EXPR_DAYS" ColumnName="EXPR_DAYS" />
+          <ScalarProperty Name="UPRI_CHG_AVL_FLG" ColumnName="UPRI_CHG_AVL_FLG" />
+          <ScalarProperty Name="DEF_SHIP_UNIT_CD" ColumnName="DEF_SHIP_UNIT_CD" />
+          <ScalarProperty Name="DEF_PURC_UNIT_CD" ColumnName="DEF_PURC_UNIT_CD" />
+          <ScalarProperty Name="SLO_SNO_NESS" ColumnName="SLO_SNO_NESS" />
+          <ScalarProperty Name="QTN_SNO_NESS" ColumnName="QTN_SNO_NESS" />
+          <ScalarProperty Name="EACH_TIME_ITM_FLG" ColumnName="EACH_TIME_ITM_FLG" />
+          <ScalarProperty Name="ITM_CP_CD" ColumnName="ITM_CP_CD" />
+          <ScalarProperty Name="COST_STD_QTY" ColumnName="COST_STD_QTY" />
+          <ScalarProperty Name="PLN_PLN_TYP" ColumnName="PLN_PLN_TYP" />
+          <ScalarProperty Name="SUNDRY_FLG" ColumnName="SUNDRY_FLG" />
+          <ScalarProperty Name="MINUS_UPRI_PRM_FLG" ColumnName="MINUS_UPRI_PRM_FLG" />
+          <ScalarProperty Name="SLS_ACT_XTR_FLG" ColumnName="SLS_ACT_XTR_FLG" />
+          <ScalarProperty Name="SPC_RESP_FLG" ColumnName="SPC_RESP_FLG" />
+          <ScalarProperty Name="SLS_APP_TMG_TYP" ColumnName="SLS_APP_TMG_TYP" />
+          <ScalarProperty Name="NEW_PURC_CTAX_CD_ST_DT" ColumnName="NEW_PURC_CTAX_CD_ST_DT" />
+          <ScalarProperty Name="NEW_PURC_CTAX_CD" ColumnName="NEW_PURC_CTAX_CD" />
+          <ScalarProperty Name="PURC_CTAX_CD" ColumnName="PURC_CTAX_CD" />
+          <ScalarProperty Name="NEW_SLS_CTAX_CD_ST_DT" ColumnName="NEW_SLS_CTAX_CD_ST_DT" />
+          <ScalarProperty Name="NEW_SLS_CTAX_CD" ColumnName="NEW_SLS_CTAX_CD" />
+          <ScalarProperty Name="SLS_CTAX_CD" ColumnName="SLS_CTAX_CD" />
+          <ScalarProperty Name="PKNG_QTY" ColumnName="PKNG_QTY" />
+          <ScalarProperty Name="DSH_TYP" ColumnName="DSH_TYP" />
+          <ScalarProperty Name="SLS_ARRG_TYP" ColumnName="SLS_ARRG_TYP" />
+          <ScalarProperty Name="JAN_CD" ColumnName="JAN_CD" />
+          <ScalarProperty Name="PTN_CD" ColumnName="PTN_CD" />
+          <ScalarProperty Name="EXT_ITM_NM" ColumnName="EXT_ITM_NM" />
+          <ScalarProperty Name="APS_TGT_FLG" ColumnName="APS_TGT_FLG" />
+          <ScalarProperty Name="LOT_NO_INO_TYP" ColumnName="LOT_NO_INO_TYP" />
+          <ScalarProperty Name="INO_PTN_CD" ColumnName="INO_PTN_CD" />
+          <ScalarProperty Name="HS_CD" ColumnName="HS_CD" />
+          <ScalarProperty Name="ITM_JNL_CD" ColumnName="ITM_JNL_CD" />
+          <ScalarProperty Name="AC_ITM_GRP_CD" ColumnName="AC_ITM_GRP_CD" />
+          <ScalarProperty Name="PROD_ITM_GRP_CD" ColumnName="PROD_ITM_GRP_CD" />
+          <ScalarProperty Name="TRNSFR_LOT_UNIT_QTY" ColumnName="TRNSFR_LOT_UNIT_QTY" />
+          <ScalarProperty Name="XFR_MRG_LT_UNIT" ColumnName="XFR_MRG_LT_UNIT" />
+          <ScalarProperty Name="XFR_MRG_LT" ColumnName="XFR_MRG_LT" />
+          <ScalarProperty Name="FIL_BAK_FLG" ColumnName="FIL_BAK_FLG" />
+          <ScalarProperty Name="REQ_RSTR_QTY" ColumnName="REQ_RSTR_QTY" />
+          <ScalarProperty Name="VMI_FLG" ColumnName="VMI_FLG" />
+          <ScalarProperty Name="SO_ALLOC_FLG" ColumnName="SO_ALLOC_FLG" />
+          <ScalarProperty Name="INPT_ALLOC_FLG" ColumnName="INPT_ALLOC_FLG" />
+          <ScalarProperty Name="ITM_ATT_TYP" ColumnName="ITM_ATT_TYP" />
+          <ScalarProperty Name="SCH_FLG" ColumnName="SCH_FLG" />
+          <ScalarProperty Name="MAIN_INP_CD" ColumnName="MAIN_INP_CD" />
+          <ScalarProperty Name="PCKG_UNIT_CD" ColumnName="PCKG_UNIT_CD" />
+          <ScalarProperty Name="PCKG_UNIT_QTY" ColumnName="PCKG_UNIT_QTY" />
+          <ScalarProperty Name="UNIT_CD" ColumnName="UNIT_CD" />
+          <ScalarProperty Name="NON_MRP_FLG" ColumnName="NON_MRP_FLG" />
+          <ScalarProperty Name="PH_ITM_TYP" ColumnName="PH_ITM_TYP" />
+          <ScalarProperty Name="ITM_TYP" ColumnName="ITM_TYP" />
+          <ScalarProperty Name="ITM_ABBR" ColumnName="ITM_ABBR" />
+          <ScalarProperty Name="ITM_NM" ColumnName="ITM_NM" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="ITM_CD" ColumnName="ITM_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_HINMOI_ALL">
+      <EntityTypeMapping TypeName="Model.CM_HINMOI_ALL">
+        <MappingFragment StoreEntitySet="CM_HINMOI_ALL">
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="END_TS" ColumnName="END_TS" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="SUB_NUM10" ColumnName="SUB_NUM10" />
+          <ScalarProperty Name="SUB_NUM9" ColumnName="SUB_NUM9" />
+          <ScalarProperty Name="SUB_NUM8" ColumnName="SUB_NUM8" />
+          <ScalarProperty Name="SUB_NUM7" ColumnName="SUB_NUM7" />
+          <ScalarProperty Name="SUB_NUM6" ColumnName="SUB_NUM6" />
+          <ScalarProperty Name="SUB_NUM5" ColumnName="SUB_NUM5" />
+          <ScalarProperty Name="SUB_NUM4" ColumnName="SUB_NUM4" />
+          <ScalarProperty Name="SUB_NUM3" ColumnName="SUB_NUM3" />
+          <ScalarProperty Name="SUB_NUM2" ColumnName="SUB_NUM2" />
+          <ScalarProperty Name="SUB_NUM1" ColumnName="SUB_NUM1" />
+          <ScalarProperty Name="SUB_CHAR5" ColumnName="SUB_CHAR5" />
+          <ScalarProperty Name="SUB_CHAR4" ColumnName="SUB_CHAR4" />
+          <ScalarProperty Name="SUB_CHAR3" ColumnName="SUB_CHAR3" />
+          <ScalarProperty Name="SUB_CHAR2" ColumnName="SUB_CHAR2" />
+          <ScalarProperty Name="SUB_CHAR1" ColumnName="SUB_CHAR1" />
+          <ScalarProperty Name="SPEC_FILE_PATH" ColumnName="SPEC_FILE_PATH" />
+          <ScalarProperty Name="D_B_FILE_PATH" ColumnName="D_B_FILE_PATH" />
+          <ScalarProperty Name="SPECIFICATIONS_REV" ColumnName="SPECIFICATIONS_REV" />
+          <ScalarProperty Name="SPECIFICATIONS" ColumnName="SPECIFICATIONS" />
+          <ScalarProperty Name="DRAWING_B_ITEM_NO" ColumnName="DRAWING_B_ITEM_NO" />
+          <ScalarProperty Name="DRAWING_B_REV" ColumnName="DRAWING_B_REV" />
+          <ScalarProperty Name="DRAWING_BOARD" ColumnName="DRAWING_BOARD" />
+          <ScalarProperty Name="EDITION_REMARK" ColumnName="EDITION_REMARK" />
+          <ScalarProperty Name="EDITION_NO" ColumnName="EDITION_NO" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="START_TS" ColumnName="START_TS" />
+          <ScalarProperty Name="ITM_CD" ColumnName="ITM_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_TOKUI_ALL">
+      <EntityTypeMapping TypeName="Model.CM_TOKUI_ALL">
+        <MappingFragment StoreEntitySet="CM_TOKUI_ALL">
+          <ScalarProperty Name="SLS_UPRI_TYP" ColumnName="SLS_UPRI_TYP" />
+          <ScalarProperty Name="IV_SUM_TYP" ColumnName="IV_SUM_TYP" />
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="LOC_CD" ColumnName="LOC_CD" />
+          <ScalarProperty Name="PAY_COND_CD" ColumnName="PAY_COND_CD" />
+          <ScalarProperty Name="UKEBASHO_CD" ColumnName="UKEBASHO_CD" />
+          <ScalarProperty Name="INCTRMS_CD" ColumnName="INCTRMS_CD" />
+          <ScalarProperty Name="CDT_LMT_AMT" ColumnName="CDT_LMT_AMT" />
+          <ScalarProperty Name="RCV_SCHD_DT" ColumnName="RCV_SCHD_DT" />
+          <ScalarProperty Name="RCV_SCHD_MTH" ColumnName="RCV_SCHD_MTH" />
+          <ScalarProperty Name="BILL_MTH_BASE" ColumnName="BILL_MTH_BASE" />
+          <ScalarProperty Name="BILL_CL_FIX_DT" ColumnName="BILL_CL_FIX_DT" />
+          <ScalarProperty Name="BILL_CL_PROCESS_DT" ColumnName="BILL_CL_PROCESS_DT" />
+          <ScalarProperty Name="BILL_CL_DT" ColumnName="BILL_CL_DT" />
+          <ScalarProperty Name="BILL_D_OTP_ORD_TYP" ColumnName="BILL_D_OTP_ORD_TYP" />
+          <ScalarProperty Name="BILL_D_OTP_TYP" ColumnName="BILL_D_OTP_TYP" />
+          <ScalarProperty Name="IV_TGT_FLG" ColumnName="IV_TGT_FLG" />
+          <ScalarProperty Name="CTAX_CALC_TYP" ColumnName="CTAX_CALC_TYP" />
+          <ScalarProperty Name="CTAX_RND_TYP" ColumnName="CTAX_RND_TYP" />
+          <ScalarProperty Name="NEW_SLS_CTAX_CD_ST_DT" ColumnName="NEW_SLS_CTAX_CD_ST_DT" />
+          <ScalarProperty Name="NEW_SLS_CTAX_CD" ColumnName="NEW_SLS_CTAX_CD" />
+          <ScalarProperty Name="SLS_CTAX_CD" ColumnName="SLS_CTAX_CD" />
+          <ScalarProperty Name="SLS_RND_TYP" ColumnName="SLS_RND_TYP" />
+          <ScalarProperty Name="BILL_SHET_REQ_FLG" ColumnName="BILL_SHET_REQ_FLG" />
+          <ScalarProperty Name="SCST_AMT_PRNT_FLG" ColumnName="SCST_AMT_PRNT_FLG" />
+          <ScalarProperty Name="SCST_SHET_NEC_FLG" ColumnName="SCST_SHET_NEC_FLG" />
+          <ScalarProperty Name="SLO_ENT_NG_FLG" ColumnName="SLO_ENT_NG_FLG" />
+          <ScalarProperty Name="SLS_TTL_CD" ColumnName="SLS_TTL_CD" />
+          <ScalarProperty Name="CRED_CD" ColumnName="CRED_CD" />
+          <ScalarProperty Name="BCST_CD" ColumnName="BCST_CD" />
+          <ScalarProperty Name="ACST_CD" ColumnName="ACST_CD" />
+          <ScalarProperty Name="BISNSS_USR_CD" ColumnName="BISNSS_USR_CD" />
+          <ScalarProperty Name="BISNSS_DPT_CD" ColumnName="BISNSS_DPT_CD" />
+          <ScalarProperty Name="CST_NM" ColumnName="CST_NM" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="CST_CD" ColumnName="CST_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_NOUHIN_ALL">
+      <EntityTypeMapping TypeName="Model.CM_NOUHIN_ALL">
+        <MappingFragment StoreEntitySet="CM_NOUHIN_ALL">
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="CST_CD4" ColumnName="CST_CD4" />
+          <ScalarProperty Name="CST_CD3" ColumnName="CST_CD3" />
+          <ScalarProperty Name="CST_CD2" ColumnName="CST_CD2" />
+          <ScalarProperty Name="CST_CD1" ColumnName="CST_CD1" />
+          <ScalarProperty Name="IV_TGT_FLG" ColumnName="IV_TGT_FLG" />
+          <ScalarProperty Name="SHIP_SLIP_ISSU_FLG" ColumnName="SHIP_SLIP_ISSU_FLG" />
+          <ScalarProperty Name="SLS_APP_TMG_TYP" ColumnName="SLS_APP_TMG_TYP" />
+          <ScalarProperty Name="CSTMR_FLG" ColumnName="CSTMR_FLG" />
+          <ScalarProperty Name="SCST_FLG" ColumnName="SCST_FLG" />
+          <ScalarProperty Name="BISNSS_USR_CD" ColumnName="BISNSS_USR_CD" />
+          <ScalarProperty Name="BISNSS_DPT_CD" ColumnName="BISNSS_DPT_CD" />
+          <ScalarProperty Name="CST_CD" ColumnName="CST_CD" />
+          <ScalarProperty Name="USR_NM" ColumnName="USR_NM" />
+          <ScalarProperty Name="DPT_NM" ColumnName="DPT_NM" />
+          <ScalarProperty Name="SCST_NM" ColumnName="SCST_NM" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="SCST_CD" ColumnName="SCST_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_CTAX_ALL">
+      <EntityTypeMapping TypeName="Model.CM_CTAX_ALL">
+        <MappingFragment StoreEntitySet="CM_CTAX_ALL">
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="SLS_PURC_TYP" ColumnName="SLS_PURC_TYP" />
+          <ScalarProperty Name="CTAX_RATE" ColumnName="CTAX_RATE" />
+          <ScalarProperty Name="CTAX_TYP" ColumnName="CTAX_TYP" />
+          <ScalarProperty Name="CTAX_NM" ColumnName="CTAX_NM" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="CTAX_CD" ColumnName="CTAX_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_RATE_ALL">
+      <EntityTypeMapping TypeName="Model.CM_RATE_ALL">
+        <MappingFragment StoreEntitySet="CM_RATE_ALL">
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="END_TS" ColumnName="END_TS" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="BASE_RATE" ColumnName="BASE_RATE" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="EXCHANGE_RATE_TYP" ColumnName="EXCHANGE_RATE_TYP" />
+          <ScalarProperty Name="START_TS" ColumnName="START_TS" />
+          <ScalarProperty Name="BASE_CURRENCY_CD" ColumnName="BASE_CURRENCY_CD" />
+          <ScalarProperty Name="CURRENCY_CD" ColumnName="CURRENCY_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_BP_ALL">
+      <EntityTypeMapping TypeName="Model.CM_BP_ALL">
+        <MappingFragment StoreEntitySet="CM_BP_ALL">
+          <ScalarProperty Name="PO_TO_SO_TYP" ColumnName="PO_TO_SO_TYP" />
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="FORWARDER_FLG" ColumnName="FORWARDER_FLG" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="PRNT_LOCALE_CD" ColumnName="PRNT_LOCALE_CD" />
+          <ScalarProperty Name="CNTRY_CD" ColumnName="CNTRY_CD" />
+          <ScalarProperty Name="BCUR_CD" ColumnName="BCUR_CD" />
+          <ScalarProperty Name="TRD_END_DT" ColumnName="TRD_END_DT" />
+          <ScalarProperty Name="TRD_ST_DT" ColumnName="TRD_ST_DT" />
+          <ScalarProperty Name="SUNDRY_FLG" ColumnName="SUNDRY_FLG" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="ML_ADDR" ColumnName="ML_ADDR" />
+          <ScalarProperty Name="USR_NM" ColumnName="USR_NM" />
+          <ScalarProperty Name="DPT_NM" ColumnName="DPT_NM" />
+          <ScalarProperty Name="CNTCT_PSN" ColumnName="CNTCT_PSN" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="ADDR4" ColumnName="ADDR4" />
+          <ScalarProperty Name="ADDR3" ColumnName="ADDR3" />
+          <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+          <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+          <ScalarProperty Name="ZIP_CD" ColumnName="ZIP_CD" />
+          <ScalarProperty Name="AREA_CD" ColumnName="AREA_CD" />
+          <ScalarProperty Name="KANA_NM" ColumnName="KANA_NM" />
+          <ScalarProperty Name="OFCL_NM" ColumnName="OFCL_NM" />
+          <ScalarProperty Name="CO_NM" ColumnName="CO_NM" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_PAYCOND_ALL">
+      <EntityTypeMapping TypeName="Model.CM_PAYCOND_ALL">
+        <MappingFragment StoreEntitySet="CM_PAYCOND_ALL">
+          <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+          <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+          <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+          <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+          <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+          <ScalarProperty Name="PAY_COND_NM" ColumnName="PAY_COND_NM" />
+          <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+          <ScalarProperty Name="PAY_COND_CD" ColumnName="PAY_COND_CD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

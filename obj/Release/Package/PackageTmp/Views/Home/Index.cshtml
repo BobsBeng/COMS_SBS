@@ -1,0 +1,145 @@
+﻿@*//@model List<WebApplication1.ViewModels.OrdStsCountResult>*@
+
+
+@{
+    //Layout = null;
+    if (Session["userName"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+    ViewBag.Title = "Index";
+   
+}
+<script src="~/Content/DataTables/jQuery-3.7.0/jquery-3.7.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#poSaved').attr('title', 'Go to page');
+        $('#poSaved').click(function () {
+            var url = '@Url.Action("Index", "InquiryPO")';
+            window.location.href = url +'?SelectedStatusNames=' + 'Save';           
+        });
+
+        $('#poApprove').attr('title', 'Go to page');
+        $('#poApprove').click(function () {
+            var url = '@Url.Action("Index", "InquiryPO")';
+            window.location.href = url + '?SelectedStatusNames=' + 'Submitted';          
+        });
+
+        $('#poReqCancel').attr('title', 'Go to page');
+        $('#poReqCancel').click(function () {
+            var url = '@Url.Action("Index", "InquiryPO")';
+            window.location.href = url + '?SelectedStatusNames=' + 'Request to cancel';          
+        });
+
+        $('#poReqAbort').attr('title', 'Go to page');
+        $('#poReqAbort').click(function () {
+            var url = '@Url.Action("Index", "InquiryPO")';
+            window.location.href = url + '?SelectedStatusNames=' + 'Request to abort';
+           
+        });
+
+
+    });
+</script>
+               <!-- Begin Page Content -->
+                <div class="container-fluid">
+                 
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Welcome</h1>                       
+                    </div>                    
+                  
+    <div class="row">
+        <!-- Purchase Order Issued -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" id="card">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                PO Saved
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.countForOrdSts0</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-compact-disc fa-2x text-gray-300" id="poSaved"></i>
+                        </div>                   
+                    </div>
+                </div>
+                <div class="tooltip" id="tooltipContent">Tooltip content goes here.</div>
+            </div>
+
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Need To Approve
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.CountForOrdSts1</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-check fa-2x text-gray-300" id="poApprove"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Request To Cancel
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.CountForOrdSts3</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-stop-circle fa-2x text-gray-300" id="poReqCancel"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Request to Abort
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.CountForOrdSts5</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-trash fa-2x text-gray-300" id="poReqAbort"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+                   </div>
+            <!-- End of Footer -->
+       <style>
+   .tooltip {
+    position: absolute;
+    visibility: hidden;
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+       </style>

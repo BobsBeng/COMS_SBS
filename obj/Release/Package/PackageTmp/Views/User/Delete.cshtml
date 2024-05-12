@@ -1,0 +1,48 @@
+﻿@model WebApplication1.Models.SBS_COMS_USER
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .label-danger {
+        color: #ff0000;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-10">
+            <h2>Delete</h2>
+            <span class="label label-danger">@ViewBag.Message</span>
+            <hr />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-10">
+            <h5>Please press "Delete" button if you really want to delete @Html.DisplayFor(model => model.UserName)?</h5>
+        </div>
+    </div>
+    
+    <div class="form-actions no-color">
+        <div class="form-group">
+            <div class="col-10">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", style = "display:none"} })
+                @Html.EditorFor(model => model.ISACTIVE, new { htmlAttributes = new { @class = "form-control", style = "display:none" } })
+                @Html.EditorFor(model => model.LockoutEnabled, new { htmlAttributes = new { @class = "form-control", style = "display:none" } })
+                @Html.EditorFor(model => model.Company_CD, new { htmlAttributes = new { @class = "form-control", style = "display:none" } })
+                @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control", style = "display:none" } })
+                @Html.EditorFor(model => model.AccessFailedCount, new { htmlAttributes = new { @class = "form-control", style = "display:none" } })
+                @Html.EditorFor(model => model.ROLES, new { htmlAttributes = new { @class = "form-control", style = "display:none" } })
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    </div>
+}
+

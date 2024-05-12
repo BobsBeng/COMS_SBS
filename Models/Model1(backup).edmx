@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="12.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar2" MaxLength="450" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar2" MaxLength="256" />
+          <Property Name="PasswordHash" Type="nvarchar2" MaxLength="2000" />
+          <Property Name="LockoutEnd" Type="timestamp with time zone" Precision="6" />
+          <Property Name="LockoutEnabled" Type="number" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Company_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="ISACTIVE" Type="varchar2" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="CM_BP_ALL">
+          <Key>
+            <PropertyRef Name="COMPANY_CD" />
+            <PropertyRef Name="CO_CD" />
+          </Key>
+          <Property Name="COMPANY_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="CO_CD" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="CO_NM" Type="varchar2" MaxLength="40" />
+          <Property Name="OFCL_NM" Type="varchar2" MaxLength="80" />
+          <Property Name="KANA_NM" Type="varchar2" MaxLength="80" />
+          <Property Name="AREA_CD" Type="varchar2" MaxLength="3" />
+          <Property Name="ZIP_CD" Type="varchar2" MaxLength="10" />
+          <Property Name="ADDR1" Type="varchar2" MaxLength="40" />
+          <Property Name="ADDR2" Type="varchar2" MaxLength="40" />
+          <Property Name="ADDR3" Type="varchar2" MaxLength="40" />
+          <Property Name="ADDR4" Type="varchar2" MaxLength="40" />
+          <Property Name="TEL" Type="varchar2" MaxLength="20" />
+          <Property Name="FAX" Type="varchar2" MaxLength="20" />
+          <Property Name="CNTCT_PSN" Type="varchar2" MaxLength="20" />
+          <Property Name="DPT_NM" Type="varchar2" MaxLength="40" />
+          <Property Name="USR_NM" Type="varchar2" MaxLength="40" />
+          <Property Name="ML_ADDR" Type="varchar2" MaxLength="50" />
+          <Property Name="URL" Type="varchar2" MaxLength="50" />
+          <Property Name="SUNDRY_FLG" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="TRD_ST_DT" Type="date" Nullable="false" />
+          <Property Name="TRD_END_DT" Type="date" Nullable="false" />
+          <Property Name="BCUR_CD" Type="varchar2" MaxLength="3" Nullable="false" />
+          <Property Name="CNTRY_CD" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="PRNT_LOCALE_CD" Type="varchar2" MaxLength="5" />
+          <Property Name="INVALID_FLG" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NOTE" Type="varchar2" MaxLength="100" />
+          <Property Name="FORWARDER_FLG" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="INS_TS" Type="date" />
+          <Property Name="INS_USR_ID" Type="varchar2" MaxLength="10" />
+          <Property Name="UPD_CNTR" Type="number" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="UPD_TS" Type="date" />
+          <Property Name="UPD_USR_ID" Type="varchar2" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="PROD2" store:Type="Tables" />
+          <EntitySet Name="CM_BP_ALL" EntityType="Self.CM_BP_ALL" Schema="PROD2" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="LockoutEnd" Type="DateTimeOffset" Precision="9" />
+          <Property Name="LockoutEnabled" Type="Int16" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="Company_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ISACTIVE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CM_BP_ALL">
+          <Key>
+            <PropertyRef Name="COMPANY_CD" />
+            <PropertyRef Name="CO_CD" />
+          </Key>
+          <Property Name="COMPANY_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CO_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CO_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="OFCL_NM" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="KANA_NM" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="AREA_CD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ZIP_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR1" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR2" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR3" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ADDR4" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TEL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CNTCT_PSN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DPT_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="USR_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="ML_ADDR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUNDRY_FLG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TRD_ST_DT" Type="DateTime" Nullable="false" />
+          <Property Name="TRD_END_DT" Type="DateTime" Nullable="false" />
+          <Property Name="BCUR_CD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CNTRY_CD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRNT_LOCALE_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="INVALID_FLG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FORWARDER_FLG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="INS_TS" Type="DateTime" />
+          <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+          <Property Name="UPD_TS" Type="DateTime" />
+          <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="CM_BP_ALL" EntityType="Self.CM_BP_ALL" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="LockoutEnd" ColumnName="LockoutEnd" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="Company_CD" ColumnName="Company_CD" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CM_BP_ALL">
+            <EntityTypeMapping TypeName="Model.CM_BP_ALL">
+              <MappingFragment StoreEntitySet="CM_BP_ALL">
+                <ScalarProperty Name="COMPANY_CD" ColumnName="COMPANY_CD" />
+                <ScalarProperty Name="CO_CD" ColumnName="CO_CD" />
+                <ScalarProperty Name="CO_NM" ColumnName="CO_NM" />
+                <ScalarProperty Name="OFCL_NM" ColumnName="OFCL_NM" />
+                <ScalarProperty Name="KANA_NM" ColumnName="KANA_NM" />
+                <ScalarProperty Name="AREA_CD" ColumnName="AREA_CD" />
+                <ScalarProperty Name="ZIP_CD" ColumnName="ZIP_CD" />
+                <ScalarProperty Name="ADDR1" ColumnName="ADDR1" />
+                <ScalarProperty Name="ADDR2" ColumnName="ADDR2" />
+                <ScalarProperty Name="ADDR3" ColumnName="ADDR3" />
+                <ScalarProperty Name="ADDR4" ColumnName="ADDR4" />
+                <ScalarProperty Name="TEL" ColumnName="TEL" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="CNTCT_PSN" ColumnName="CNTCT_PSN" />
+                <ScalarProperty Name="DPT_NM" ColumnName="DPT_NM" />
+                <ScalarProperty Name="USR_NM" ColumnName="USR_NM" />
+                <ScalarProperty Name="ML_ADDR" ColumnName="ML_ADDR" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="SUNDRY_FLG" ColumnName="SUNDRY_FLG" />
+                <ScalarProperty Name="TRD_ST_DT" ColumnName="TRD_ST_DT" />
+                <ScalarProperty Name="TRD_END_DT" ColumnName="TRD_END_DT" />
+                <ScalarProperty Name="BCUR_CD" ColumnName="BCUR_CD" />
+                <ScalarProperty Name="CNTRY_CD" ColumnName="CNTRY_CD" />
+                <ScalarProperty Name="PRNT_LOCALE_CD" ColumnName="PRNT_LOCALE_CD" />
+                <ScalarProperty Name="INVALID_FLG" ColumnName="INVALID_FLG" />
+                <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+                <ScalarProperty Name="FORWARDER_FLG" ColumnName="FORWARDER_FLG" />
+                <ScalarProperty Name="INS_TS" ColumnName="INS_TS" />
+                <ScalarProperty Name="INS_USR_ID" ColumnName="INS_USR_ID" />
+                <ScalarProperty Name="UPD_CNTR" ColumnName="UPD_CNTR" />
+                <ScalarProperty Name="UPD_TS" ColumnName="UPD_TS" />
+                <ScalarProperty Name="UPD_USR_ID" ColumnName="UPD_USR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

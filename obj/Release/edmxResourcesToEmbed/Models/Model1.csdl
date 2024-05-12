@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SBS_COMS_COUNTER_NUMBER_ALL" EntityType="Model.SBS_COMS_COUNTER_NUMBER_ALL" />
+    <EntitySet Name="SBS_HT_JUCHUH_TMP_ALL" EntityType="Model.SBS_HT_JUCHUH_TMP_ALL" />
+    <EntitySet Name="SBS_HT_JUCHUJ_TMP_ALL" EntityType="Model.SBS_HT_JUCHUJ_TMP_ALL" />
+    <EntitySet Name="SBS_SM_COMS_FILE_MAP_ALL" EntityType="Model.SBS_SM_COMS_FILE_MAP_ALL" />
+    <EntitySet Name="CM_COUNTRY_ALL" EntityType="Model.CM_COUNTRY_ALL" />
+    <EntitySet Name="CM_INCOTERMS_ALL" EntityType="Model.CM_INCOTERMS_ALL" />
+    <EntitySet Name="CM_ITM_UNIT_ALL" EntityType="Model.CM_ITM_UNIT_ALL" />
+    <EntitySet Name="HM_TOKUIH_ALL" EntityType="Model.HM_TOKUIH_ALL" />
+    <EntitySet Name="SC_SYSTEM_ALL" EntityType="Model.SC_SYSTEM_ALL" />
+    <AssociationSet Name="FK_SBS_HT_JUCHUH_TMP_ALL_01" Association="Model.FK_SBS_HT_JUCHUH_TMP_ALL_01">
+      <End Role="SBS_HT_JUCHUJ_TMP_ALL" EntitySet="SBS_HT_JUCHUJ_TMP_ALL" />
+      <End Role="SBS_HT_JUCHUH_TMP_ALL" EntitySet="SBS_HT_JUCHUH_TMP_ALL" />
+    </AssociationSet>
+    <EntitySet Name="SBS_COMS_USER" EntityType="Model.SBS_COMS_USER" />
+    <EntitySet Name="SBS_SC_PO_STATUS" EntityType="Model.SBS_SC_PO_STATUS" />
+    <EntitySet Name="CM_HINMO_ALL" EntityType="Model.CM_HINMO_ALL" />
+    <EntitySet Name="CM_HINMOI_ALL" EntityType="Model.CM_HINMOI_ALL" />
+    <EntitySet Name="CM_TOKUI_ALL" EntityType="Model.CM_TOKUI_ALL" />
+    <EntitySet Name="CM_NOUHIN_ALL" EntityType="Model.CM_NOUHIN_ALL" />
+    <EntitySet Name="CM_CTAX_ALL" EntityType="Model.CM_CTAX_ALL" />
+    <EntitySet Name="CM_RATE_ALL" EntityType="Model.CM_RATE_ALL" />
+    <EntitySet Name="CM_BP_ALL" EntityType="Model.CM_BP_ALL" />
+    <EntitySet Name="CM_PAYCOND_ALL" EntityType="Model.CM_PAYCOND_ALL" />
+    <FunctionImport Name="GET_ORD_STS_COUNT">
+      <Parameter Name="P_ROLES" Mode="In" Type="String" />
+      <Parameter Name="P_CST_CD" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="SBS_COMS_COUNTER_NUMBER_ALL">
+    <Key>
+      <PropertyRef Name="CNT_GRP" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="PERIOD" />
+    </Key>
+    <Property Name="CNT_GRP" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PERIOD" Type="DateTime" Nullable="false" />
+    <Property Name="CURR_VALUE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SBS_HT_JUCHUH_TMP_ALL">
+    <Key>
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="T_SLO_D_NO" />
+    </Key>
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_SLO_NO" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="T_SLO_D_NO" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SLO_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SLO_D_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SET_NO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="GRP_NO" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="SLS_ARRG_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DSH_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ITM_CD" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="ITM_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="EXT_ITM_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="INPT_UNIT_CD" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="INPT_QTY" Type="Decimal" Nullable="false" Precision="13" Scale="4" />
+    <Property Name="CNV_QTY" Type="Decimal" Nullable="false" Precision="13" Scale="4" />
+    <Property Name="UNIT_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="SHIP_RQST_DT" Type="DateTime" />
+    <Property Name="RQST_DLV_DT" Type="DateTime" />
+    <Property Name="APPRV_DT" Type="DateTime" />
+    <Property Name="APPRV_STS_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="APPRV_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="QTY" Type="Decimal" Nullable="false" Precision="13" Scale="4" />
+    <Property Name="UPRI" Type="Decimal" Nullable="false" Precision="21" Scale="4" />
+    <Property Name="SPE_DSCNT_UPRI" Type="Decimal" Nullable="false" Precision="21" Scale="4" />
+    <Property Name="DSCNT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DSCNT" Type="Decimal" Nullable="false" Precision="21" Scale="4" />
+    <Property Name="DSCNT_UPRI" Type="Decimal" Nullable="false" Precision="21" Scale="4" />
+    <Property Name="SLS_AMT" Type="Decimal" Nullable="false" Precision="21" Scale="4" />
+    <Property Name="XTX_SLS_AMT" Type="Decimal" Nullable="false" Precision="21" Scale="4" />
+    <Property Name="CTAX_SPEC_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CTAX_CD" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CTAX_RATE" Type="Decimal" Nullable="false" Precision="7" Scale="4" />
+    <Property Name="CTAX_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CTAX_AMT" Type="Decimal" Precision="21" Scale="4" />
+    <Property Name="SLS_COST_UPRI" Type="Decimal" Precision="21" Scale="4" />
+    <Property Name="RMRKS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CAN_FLG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CAN_DT" Type="DateTime" />
+    <Property Name="CAN_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CUR_CD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="XRATE" Type="Decimal" Precision="21" Scale="4" />
+    <Property Name="XRATE_DT" Type="DateTime" />
+    <Property Name="XCNTRCT_FLG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="XCNTRCT_NO" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="BCUR_XTX_SLS_AMT" Type="Decimal" Precision="21" Scale="4" />
+    <Property Name="XRATE_TYP" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="SNO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SUB_SNO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SBS_HT_JUCHUJ_TMP_ALL" Relationship="Model.FK_SBS_HT_JUCHUH_TMP_ALL_01" FromRole="SBS_HT_JUCHUH_TMP_ALL" ToRole="SBS_HT_JUCHUJ_TMP_ALL" />
+    <Property Name="RQST_ARVD_DT" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="SBS_HT_JUCHUJ_TMP_ALL">
+    <Key>
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="T_SLO_NO" />
+    </Key>
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="T_SLO_NO" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SLS_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CST_PO_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CST_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CST_CNTCT_DPT_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CST_CNTCT_PSN_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="SCST_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SCST_ADDR_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SCST_CNTCT_DPT_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="SCST_USR_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CSTMR_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CSTMR_ADDR_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="T_SLO_DT" Type="DateTime" />
+    <Property Name="SLS_RND_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CTAX_RND_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CTAX_CALC_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="FARE_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="INTR_RMRKS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SLIP_RMRKS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CAN_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CAN_DT" Type="DateTime" />
+    <Property Name="CAN_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CUR_CD" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="XRATE" Type="Decimal" Precision="21" Scale="4" />
+    <Property Name="XRATE_DT" Type="DateTime" />
+    <Property Name="XCNTRCT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="XCNTRCT_NO" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="XRATE_TYP" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TRD_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="INCTRMS_CD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="UKEBASHO_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PAY_COND_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SRC_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SBS_HT_JUCHUH_TMP_ALL" Relationship="Model.FK_SBS_HT_JUCHUH_TMP_ALL_01" FromRole="SBS_HT_JUCHUJ_TMP_ALL" ToRole="SBS_HT_JUCHUH_TMP_ALL" />
+    <Property Name="ORD_STS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SBS_SM_COMS_FILE_MAP_ALL">
+    <Key>
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="SEQ_NO" />
+      <PropertyRef Name="CST_CD" />
+    </Key>
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SEQ_NO" Type="Int32" Nullable="false" />
+    <Property Name="CST_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ACT_CST_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CONVERTF" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SO_SUCCEEDF" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL_SUBJECT" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CM_COUNTRY_ALL">
+    <Key>
+      <PropertyRef Name="COUNTRY_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="COUNTRY_NM" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="GHS_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="COUNTRY_CD" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY_NM" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="REGION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="INVALID_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GHS_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CM_INCOTERMS_ALL">
+    <Key>
+      <PropertyRef Name="INCTRMS_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="INCTRMS_NM" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="INCTRMS_CD" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="INCTRMS_NM" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="INVALID_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOTE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CM_ITM_UNIT_ALL">
+    <Key>
+      <PropertyRef Name="ITM_CD" />
+      <PropertyRef Name="UNIT_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="UNIT_CONV_QTY" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="ITM_CD" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="UNIT_CD" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UNIT_CONV_QTY" Type="Decimal" Nullable="false" Precision="13" Scale="4" />
+    <Property Name="UNIT_WT" Type="Decimal" Precision="13" Scale="4" />
+    <Property Name="UNIT_DIM" Type="Decimal" Precision="13" Scale="4" />
+    <Property Name="INVALID_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HM_TOKUIH_ALL">
+    <Key>
+      <PropertyRef Name="ITM_CD" />
+      <PropertyRef Name="CST_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="ITM_CD" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CST_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CST_ITM_CD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CST_ITM_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CST_EXT_ITM_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="INVALID_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="RMRKS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SC_SYSTEM_ALL">
+    <Key>
+      <PropertyRef Name="TYP" />
+      <PropertyRef Name="CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="NMC" />
+    </Key>
+    <Property Name="TYP" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="CD" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="LITERAL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NMC" Type="Decimal" Nullable="false" Precision="21" Scale="8" />
+    <Property Name="XPLA" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_SBS_HT_JUCHUH_TMP_ALL_01">
+    <End Type="Model.SBS_HT_JUCHUJ_TMP_ALL" Role="SBS_HT_JUCHUJ_TMP_ALL" Multiplicity="1" />
+    <End Type="Model.SBS_HT_JUCHUH_TMP_ALL" Role="SBS_HT_JUCHUH_TMP_ALL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SBS_HT_JUCHUJ_TMP_ALL">
+        <PropertyRef Name="CO_CD" />
+        <PropertyRef Name="T_SLO_NO" />
+      </Principal>
+      <Dependent Role="SBS_HT_JUCHUH_TMP_ALL">
+        <PropertyRef Name="CO_CD" />
+        <PropertyRef Name="T_SLO_NO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SBS_COMS_USER">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordHash" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="LockoutEnd" Type="DateTimeOffset" Precision="9" />
+    <Property Name="LockoutEnabled" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="Company_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ISACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ROLES" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_LOGIN" Type="DateTime" />
+    <Property Name="LAST_LOGOUT" Type="DateTime" />
+    <Property Name="REMARKS" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SBS_SC_PO_STATUS">
+    <Key>
+      <PropertyRef Name="STS_ID" />
+      <PropertyRef Name="CO_CD" />
+    </Key>
+    <Property Name="STS_ID" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="STS_NM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CM_HINMO_ALL">
+    <Key>
+      <PropertyRef Name="ITM_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="ITM_TYP" />
+      <PropertyRef Name="NON_MRP_FLG" />
+      <PropertyRef Name="UNIT_CD" />
+      <PropertyRef Name="PCKG_UNIT_QTY" />
+      <PropertyRef Name="SCH_FLG" />
+      <PropertyRef Name="ITM_ATT_TYP" />
+      <PropertyRef Name="INPT_ALLOC_FLG" />
+      <PropertyRef Name="SO_ALLOC_FLG" />
+      <PropertyRef Name="VMI_FLG" />
+      <PropertyRef Name="FIL_BAK_FLG" />
+      <PropertyRef Name="ITM_JNL_CD" />
+      <PropertyRef Name="APS_TGT_FLG" />
+      <PropertyRef Name="SLS_ARRG_TYP" />
+      <PropertyRef Name="DSH_TYP" />
+      <PropertyRef Name="PKNG_QTY" />
+      <PropertyRef Name="SLS_APP_TMG_TYP" />
+      <PropertyRef Name="SPC_RESP_FLG" />
+      <PropertyRef Name="SLS_ACT_XTR_FLG" />
+      <PropertyRef Name="MINUS_UPRI_PRM_FLG" />
+      <PropertyRef Name="SUNDRY_FLG" />
+      <PropertyRef Name="EACH_TIME_ITM_FLG" />
+      <PropertyRef Name="QTN_SNO_NESS" />
+      <PropertyRef Name="SLO_SNO_NESS" />
+      <PropertyRef Name="UPRI_CHG_AVL_FLG" />
+      <PropertyRef Name="SLO_STOP_FLG" />
+      <PropertyRef Name="PO_STOP_FLG" />
+      <PropertyRef Name="INST_STOP_FLG" />
+      <PropertyRef Name="PURC_TGT_FLG" />
+      <PropertyRef Name="PURC_STNG_COMPL_FLG" />
+      <PropertyRef Name="PROD_TGT_FLG" />
+      <PropertyRef Name="PROD_STNG_COMPL_FLG" />
+      <PropertyRef Name="INSP_TGT_FLG" />
+      <PropertyRef Name="INSP_STNG_COMPL_FLG" />
+      <PropertyRef Name="SLS_TGT_FLG" />
+      <PropertyRef Name="SLS_STNG_COMPL_FLG" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="DEFAULT_FLG" />
+      <PropertyRef Name="PO_BASE_DATE" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="ITM_CD" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ITM_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="ITM_ABBR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ITM_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="PH_ITM_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="NON_MRP_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="UNIT_CD" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="PCKG_UNIT_QTY" Type="Decimal" Nullable="false" Precision="13" Scale="4" />
+    <Property Name="PCKG_UNIT_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="MAIN_INP_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SCH_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ITM_ATT_TYP" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="INPT_ALLOC_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SO_ALLOC_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="VMI_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="REQ_RSTR_QTY" Type="Decimal" Precision="13" Scale="4" />
+    <Property Name="FIL_BAK_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="XFR_MRG_LT" Type="Int32" />
+    <Property Name="XFR_MRG_LT_UNIT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="TRNSFR_LOT_UNIT_QTY" Type="Decimal" Precision="13" Scale="4" />
+    <Property Name="PROD_ITM_GRP_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AC_ITM_GRP_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ITM_JNL_CD" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="HS_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="INO_PTN_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="LOT_NO_INO_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="APS_TGT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EXT_ITM_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="PTN_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="JAN_CD" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="SLS_ARRG_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="DSH_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="PKNG_QTY" Type="Decimal" Nullable="false" Precision="13" Scale="4" />
+    <Property Name="SLS_CTAX_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="NEW_SLS_CTAX_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="NEW_SLS_CTAX_CD_ST_DT" Type="DateTime" />
+    <Property Name="PURC_CTAX_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="NEW_PURC_CTAX_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="NEW_PURC_CTAX_CD_ST_DT" Type="DateTime" />
+    <Property Name="SLS_APP_TMG_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SPC_RESP_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SLS_ACT_XTR_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="MINUS_UPRI_PRM_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SUNDRY_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PLN_PLN_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="COST_STD_QTY" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="ITM_CP_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EACH_TIME_ITM_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="QTN_SNO_NESS" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SLO_SNO_NESS" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DEF_PURC_UNIT_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="DEF_SHIP_UNIT_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="UPRI_CHG_AVL_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EXPR_DAYS" Type="Int16" />
+    <Property Name="GUARANTEE_MTHS" Type="Int16" />
+    <Property Name="BOM_SEIBAN_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="BOM_SUB_SEIBAN_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CTG_A" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CTG_B" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CTG_C" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CTG_D" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CTG_E" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CTG_F" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CTG_G" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CTG_H" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CTG_I" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CTG_J" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SLO_STOP_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SLO_STOP_DT" Type="DateTime" />
+    <Property Name="PO_STOP_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PO_STOP_DT" Type="DateTime" />
+    <Property Name="INST_STOP_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="INST_STOP_DT" Type="DateTime" />
+    <Property Name="SPE_NOTE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PURC_TGT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PURC_STNG_COMPL_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PROD_TGT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="PROD_STNG_COMPL_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="INSP_TGT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="INSP_STNG_COMPL_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SLS_TGT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SLS_STNG_COMPL_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="INVALID_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DEFAULT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DEADLINE_DAYS" Type="Int16" />
+    <Property Name="PO_BASE_DATE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CM_HINMOI_ALL">
+    <Key>
+      <PropertyRef Name="ITM_CD" />
+      <PropertyRef Name="START_TS" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="END_TS" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="ITM_CD" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="START_TS" Type="DateTime" Nullable="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EDITION_NO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="EDITION_REMARK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DRAWING_BOARD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DRAWING_B_REV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DRAWING_B_ITEM_NO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SPECIFICATIONS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SPECIFICATIONS_REV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="D_B_FILE_PATH" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+    <Property Name="SPEC_FILE_PATH" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+    <Property Name="SUB_CHAR1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SUB_CHAR2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SUB_CHAR3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SUB_CHAR4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SUB_CHAR5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SUB_NUM1" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM2" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM3" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM4" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM5" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM6" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM7" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM8" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM9" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="SUB_NUM10" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="REMARK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="END_TS" Type="DateTime" Nullable="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CM_TOKUI_ALL">
+    <Key>
+      <PropertyRef Name="CST_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="BISNSS_DPT_CD" />
+      <PropertyRef Name="ACST_CD" />
+      <PropertyRef Name="SLS_TTL_CD" />
+      <PropertyRef Name="SLO_ENT_NG_FLG" />
+      <PropertyRef Name="SCST_SHET_NEC_FLG" />
+      <PropertyRef Name="SCST_AMT_PRNT_FLG" />
+      <PropertyRef Name="BILL_SHET_REQ_FLG" />
+      <PropertyRef Name="SLS_RND_TYP" />
+      <PropertyRef Name="CTAX_RND_TYP" />
+      <PropertyRef Name="CTAX_CALC_TYP" />
+      <PropertyRef Name="IV_TGT_FLG" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="CST_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CST_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="BISNSS_DPT_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BISNSS_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ACST_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BCST_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CRED_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SLS_TTL_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SLO_ENT_NG_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SCST_SHET_NEC_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SCST_AMT_PRNT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BILL_SHET_REQ_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SLS_RND_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SLS_CTAX_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="NEW_SLS_CTAX_CD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="NEW_SLS_CTAX_CD_ST_DT" Type="DateTime" />
+    <Property Name="CTAX_RND_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CTAX_CALC_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="IV_TGT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="BILL_D_OTP_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="BILL_D_OTP_ORD_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="BILL_CL_DT" Type="Int16" />
+    <Property Name="BILL_CL_PROCESS_DT" Type="Int16" />
+    <Property Name="BILL_CL_FIX_DT" Type="Int16" />
+    <Property Name="BILL_MTH_BASE" Type="Int16" />
+    <Property Name="RCV_SCHD_MTH" Type="Int16" />
+    <Property Name="RCV_SCHD_DT" Type="Int16" />
+    <Property Name="CDT_LMT_AMT" Type="Decimal" Precision="21" Scale="8" />
+    <Property Name="INCTRMS_CD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="UKEBASHO_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PAY_COND_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="LOC_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="INVALID_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IV_SUM_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SLS_UPRI_TYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CM_NOUHIN_ALL">
+    <Key>
+      <PropertyRef Name="SCST_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="SCST_FLG" />
+      <PropertyRef Name="CSTMR_FLG" />
+      <PropertyRef Name="SLS_APP_TMG_TYP" />
+      <PropertyRef Name="SHIP_SLIP_ISSU_FLG" />
+      <PropertyRef Name="IV_TGT_FLG" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="SCST_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SCST_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="DPT_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="USR_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CST_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BISNSS_DPT_CD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BISNSS_USR_CD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SCST_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CSTMR_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="SLS_APP_TMG_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SHIP_SLIP_ISSU_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IV_TGT_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CST_CD1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CST_CD2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CST_CD3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CST_CD4" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="INVALID_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CM_CTAX_ALL">
+    <Key>
+      <PropertyRef Name="CTAX_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="CTAX_NM" />
+      <PropertyRef Name="CTAX_TYP" />
+      <PropertyRef Name="CTAX_RATE" />
+      <PropertyRef Name="SLS_PURC_TYP" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="CTAX_CD" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CTAX_NM" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CTAX_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CTAX_RATE" Type="Decimal" Nullable="false" Precision="7" Scale="4" />
+    <Property Name="SLS_PURC_TYP" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="INVALID_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CM_RATE_ALL">
+    <Key>
+      <PropertyRef Name="CURRENCY_CD" />
+      <PropertyRef Name="BASE_CURRENCY_CD" />
+      <PropertyRef Name="START_TS" />
+      <PropertyRef Name="EXCHANGE_RATE_TYP" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="BASE_RATE" />
+      <PropertyRef Name="END_TS" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="CURRENCY_CD" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="BASE_CURRENCY_CD" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="START_TS" Type="DateTime" Nullable="false" />
+    <Property Name="EXCHANGE_RATE_TYP" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BASE_RATE" Type="Decimal" Nullable="false" Precision="21" Scale="8" />
+    <Property Name="NOTE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="END_TS" Type="DateTime" Nullable="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CM_BP_ALL">
+    <Key>
+      <PropertyRef Name="COMPANY_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="SUNDRY_FLG" />
+      <PropertyRef Name="TRD_ST_DT" />
+      <PropertyRef Name="TRD_END_DT" />
+      <PropertyRef Name="BCUR_CD" />
+      <PropertyRef Name="CNTRY_CD" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="FORWARDER_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="COMPANY_CD" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CO_CD" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CO_NM" MaxLength="40" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="OFCL_NM" MaxLength="80" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="KANA_NM" MaxLength="80" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="AREA_CD" MaxLength="3" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ZIP_CD" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ADDR1" MaxLength="40" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ADDR2" MaxLength="40" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ADDR3" MaxLength="40" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ADDR4" MaxLength="40" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="TEL" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="FAX" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CNTCT_PSN" MaxLength="20" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="DPT_NM" MaxLength="40" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="USR_NM" MaxLength="40" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="ML_ADDR" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="URL" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="SUNDRY_FLG" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" Type="String" />
+    <Property Name="TRD_ST_DT" Nullable="false" Type="DateTime" />
+    <Property Name="TRD_END_DT" Nullable="false" Type="DateTime" />
+    <Property Name="BCUR_CD" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="CNTRY_CD" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="PRNT_LOCALE_CD" MaxLength="5" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="INVALID_FLG" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" Type="String" />
+    <Property Name="NOTE" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="FORWARDER_FLG" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" Type="String" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="UPD_CNTR" Nullable="false" Type="Int32" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
+  </EntityType>
+  <EntityType Name="CM_PAYCOND_ALL">
+    <Key>
+      <PropertyRef Name="PAY_COND_CD" />
+      <PropertyRef Name="CO_CD" />
+      <PropertyRef Name="INVALID_FLG" />
+      <PropertyRef Name="UPD_CNTR" />
+    </Key>
+    <Property Name="PAY_COND_CD" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CO_CD" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PAY_COND_NM" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="INVALID_FLG" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NOTE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="INS_TS" Type="DateTime" />
+    <Property Name="INS_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UPD_CNTR" Type="Int32" Nullable="false" />
+    <Property Name="UPD_TS" Type="DateTime" />
+    <Property Name="UPD_USR_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
