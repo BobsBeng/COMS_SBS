@@ -31,7 +31,7 @@
 <script src="~/Content/DataTables/jQuery-3.7.0/jquery-3.7.0.min.js"></script>
 <script src="~/Scripts/purchase.js"></script>
 <script type="text/javascript">
-
+    var process = false;
     function chooseCustomer() {
         //Clean error message
         LoadCompanyCodeOnchange(document.getElementById("custCode"), "@Url.Action("getCompanyCode", "PurchaseOrder")", getValue(), "@Url.Action("getProducts", "PurchaseOrder")");
@@ -222,23 +222,26 @@
 
             //// Set action-specific click event for the Confirm button
             $('#confirmAction').off('click').on('click', function () {
-                if (action == 'submit') {
-                    saveData(url, 1 , uTate, indexUrl);
-                } else if (action == 'save') {
-                    saveData(url, 0, uTate, indexUrl);
-                }else if (action == 'cancel') {
-                    saveData(url, 3, uTate, indexUrl);
-                }else if (action == 'abort') {
-                    saveData(url, 5, uTate, indexUrl);
-                }else if (action == 'reOrder') {
-                    saveData(url, 6, uTate, indexUrl);
-                }else if (action == 'acknowledge') {
-                    saveData(url, 4, uTate, indexUrl);
-                }
+                if (!process){
+                    process = true;
+                    if (action == 'submit') {
+                        saveData(url, 1 , uTate, indexUrl);
+                    } else if (action == 'save') {
+                        saveData(url, 0, uTate, indexUrl);
+                    }else if (action == 'cancel') {
+                        saveData(url, 3, uTate, indexUrl);
+                    }else if (action == 'abort') {
+                        saveData(url, 5, uTate, indexUrl);
+                    }else if (action == 'reOrder') {
+                        saveData(url, 6, uTate, indexUrl);
+                    }else if (action == 'acknowledge') {
+                        saveData(url, 4, uTate, indexUrl);
+                    }
 
 
-                else if (action == 'delete') {
-                    deleteData(deleteUrl, indexUrl);
+                    else if (action == 'delete') {
+                        deleteData(deleteUrl, indexUrl);
+                    }
                 }
 
             });
